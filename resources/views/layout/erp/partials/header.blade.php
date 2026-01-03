@@ -402,7 +402,7 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="dropdown-item theme-red" href="investment-login.html">
+                                    <a class="dropdown-item theme-red" href="{{URL("/logout")}}">
                                         <i data-feather="power" class="avatar avatar-18 me-1"></i> Logout
                                     </a>
                                 </div>

@@ -1,9 +1,4 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <!-- dir="rtl"-->
-
-    <head>
+{{-- <head>
         <!-- Required meta tags  -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -13,46 +8,23 @@
         <link rel="icon" type="image/png"  href="{{ asset('assets') }}/img/favicon.png">
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com/">
+         <link rel="preconnect" href="https://fonts.googleapis.com/">
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
         <link
             href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
             rel="stylesheet">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <style>
-            :root {
-                --adminuiux-content-font: "Open Sans", sans-serif;
-                --adminuiux-content-font-weight: 400;
-                --adminuiux-title-font: "Lexend", sans-serif;
-                --adminuiux-title-font-weight: 600;
-            }
-        </style>
+
 
         <script defer  src="{{ asset('assets') }}/js/app435e.js?1096aad991449c8654b2"></script>
         <link  href="{{ asset('assets') }}/css/app435e.css?1096aad991449c8654b2" rel="stylesheet">
     </head>
 
     <body
-        class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed  theme-blue roundedui"
+        class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed  theme-blue roundedui "
         data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll"
         data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
-        <!-- Pageloader -->
-        <div class="pageloader">
-            <div class="container h-100">
-                <div class="row justify-content-center align-items-center text-center h-100">
-                    <div class="col-12 mb-auto pt-4"></div>
-                    <div class="col-auto">
-                        <img  src="{{ asset('assets') }}/img/logo.svg" alt="" class="height-60 mb-3">
-                        <p class="h6 mb-0">AdminUIUX</p>
-                        <p class="h3 mb-4">Investment</p>
-                        <div class="loader10 mb-2 mx-auto"></div>
-                    </div>
-                    <div class="col-12 mt-auto pb-4">
-                        <p class="text-secondary">Please wait we are preparing awesome things to preview...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <main class="flex-shrink-0 pt-0 h-100">
             <div class="container-fluid">
@@ -60,35 +32,8 @@
                     <!--Page body-->
 
                     <!-- login wrap -->
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-xl-4 minvheight-100 d-flex flex-column px-0">
-                            <!-- standard header -->
-                            <!-- standard header -->
-                            <header class="adminuiux-header">
-                                <!-- Fixed navbar -->
-                                <nav class="navbar">
-                                    <div class="container-fluid">
-                                        <!-- logo -->
-                                        <a class="navbar-brand" href="investment-dashboard.html">
-                                            <img data-bs-img="light"  src="{{ asset('assets') }}/img/logo-light.svg" alt="">
-                                            <img data-bs-img="dark"  src="{{ asset('assets') }}/img/logo.svg" alt="">
-                                            <div class="">
-                                                <span class="h4">Investment<b>UX</b></span>
-                                                <p class="company-tagline">AdminUIUX HTML template</p>
-                                            </div>
-                                        </a>
-
-                                        <div class=" ms-auto "></div>
-                                        <!-- right icons button -->
-                                        <div class="ms-auto">
 
 
-                                        </div>
-                                    </div>
-                                </nav>
-                            </header>
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
                                 <div class="h-100 py-4 px-3">
                                     <div class="row h-100 align-items-center justify-content-center mt-md-4">
                                         <div class="col-11 col-sm-8 col-md-11 col-xl-11 col-xxl-10 login-box">
@@ -96,7 +41,8 @@
                                                 <h1 class="mb-2">Welcome&#9996;</h1>
                                                 <p class="text-secondary">Enter your credential to login</p>
                                             </div>
-
+                                            <form method="POST" action="{{ route('login') }}">
+                                            @csrf
                                             <div class="form-floating mb-3">
                                                 <input type="email"
                                                     class="form-control @error('email') is-invalid @enderror" id="emailadd"
@@ -123,7 +69,7 @@
                                                     @enderror
                                                 </div>
                                                 <button
-                                                    class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 ">
+                                                    class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 " type="button">
                                                     <i class="bi bi-eye"></i>
                                                 </button>
                                             </div>
@@ -131,7 +77,7 @@
                                             <div class="row align-items-center mb-3">
                                                 <div class="col">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="rememberme"
+                                                        <input class="form-check-input" type="checkbox" name="remember"
                                                             id="rememberme">
                                                         <label class="form-check-label"
                                                             for="rememberme">{{ __('Remember Me') }}</label>
@@ -145,7 +91,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <button class="btn btn-lg btn-theme w-100 mb-4">Login</button>
+                                            <button type="submit" class="btn btn-lg btn-theme w-100 mb-4">Login</button>
 
                                             <div class="text-center mb-3">
                                                 Don't have account? @if (Route::has('register'))
@@ -153,8 +99,9 @@
                                                         href="{{ route('register') }}">{{ __('Create Account') }}</a>
                                                 @endif
                                             </div>
+                                        </form>
 
-                                            <div class="row align-items-center mb-3">
+                                            {{-- <div class="row align-items-center mb-3">
                                                 <div class="col">
                                                     <hr class="">
                                                 </div>
@@ -164,102 +111,190 @@
                                                 <div class="col">
                                                     <hr class="">
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
-                                            <button class="btn btn-lg btn-outline-theme w-100 mb-3 text-start">
+{{-- <button class="btn btn-lg btn-outline-theme w-100 mb-3 text-start" type="button">
                                                 <img  src="{{ asset('assets') }}/img/g-logo.png" alt="" class="me-2"> Sign in
                                                 with
                                                 Google
                                             </button>
-                                            <button class="btn btn-lg btn-outline-theme w-100 mb-4 text-start">
+                                            <button class="btn btn-lg btn-outline-theme w-100 mb-4 text-start" type="button">
                                                 <img  src="{{ asset('assets') }}/img/f-logo.png" alt="" class="me-2"> Sign in
                                                 with
                                                 Facebook
-                                            </button>
-                                            <br><br>
+                                            </button> --}}
+{{--
                                         </div>
                                     </div>
-                                </div>
-                            </form>
-                            <!-- standard footer -->
-                            <!-- standard index footer -->
-                            <footer class="adminuiux-footer mt-auto">
-                                <div class="container-fluid text-center">
-                                    <span class="small">Copyright @2024, <a href="https://adminuiux.com/"
-                                            target="_blank">InvestmentUX - Adminuiux</a> on Earth ❤️
+                                </div>  --}}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .login-header h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .form-control {
+            border-radius: 10px;
+        }
+
+        .btn-login {
+            border-radius: 10px;
+            padding: 0.6rem;
+            font-weight: 600;
+        }
+
+        .eye-btn {
+            position: absolute;
+            top: 71%;
+            right: 12px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+        }
+
+        .eye-btn:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+                <div class="login-card">
+
+                    <!-- Header -->
+                    <div class="login-header">
+                        <h3>Welcome Back 👋</h3>
+                        <p class="mb-0 opacity-75">Sign in to continue</p>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-4">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <!-- Email -->
+                            <div class="mb-3">
+
+                                <label class="form-label">{{ __('Email Address') }}</label>
+                                <input type="email" name="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    placeholder="you@example.com" value="{{ old('email') }}" required>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                </div>
-                            </footer>
-
-                            <!-- theming action-->
-                            <div class="position-fixed bottom-0 end-0 m-3 z-index-5">
-                                <button class="btn btn-square btn-theme shadow" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#theming" aria-controls="theming"><i
-                                        class="bi bi-palette"></i></button>
-                                <br>
-                                <button class="btn btn-theme btn-square rounded-circle shadow mt-2 d-none"
-                                    id="backtotop"><i class="bi bi-arrow-up"></i></button>
+                                @enderror
                             </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-xl-8 p-4 d-none d-md-block">
-                            <div class="card adminuiux-card bg-theme-1-space position-relative overflow-hidden h-100">
-                                <div class="position-absolute start-0 top-0 h-100 w-100 coverimg opacity-75 z-index-0">
-                                    <img  src="{{ asset('assets') }}/img/background-image/background-image-8.html" alt="">
-                                </div>
-                                <div class="card-body position-relative z-index-1">
-                                    <div
-                                        class="row h-100 d-flex flex-column justify-content-center align-items-center gx-0 text-center">
-                                        <div class="col-10 col-md-11 col-xl-8 mb-4 mx-auto">
 
-                                            <!-- Slider container -->
-                                            <div class="swiper swipernavpagination pb-5">
-                                                <div class="swiper-wrapper">
-                                                    <!-- Slides -->
-                                                    <div class="swiper-slide">
-                                                        <img  src="{{ asset('assets') }}/img/investment/slider.png" alt=""
-                                                            class="mw-100 mb-3">
-                                                        <h2 class="text-white mb-3">Create and Manage your Investment
-                                                            appointments easily at your own very personalized space.</h2>
-                                                        <p class="lead opacity-75">You are at the best Adminuiux Investment
-                                                            UX<br>HTML template demo preview</p>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <img  src="{{ asset('assets') }}/img/investment/slider.png" alt=""
-                                                            class="mw-100 mb-3">
-                                                        <h2 class="text-white mb-3">Create and Manage your Investment
-                                                            appointments easily at your own very personalized space.</h2>
-                                                        <p class="lead opacity-75">You are at the best Adminuiux Investment
-                                                            UX<br>HTML template demo preview</p>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <img  src="{{ asset('assets') }}/img/investment/slider.png" alt=""
-                                                            class="mw-100 mb-3">
-                                                        <h2 class="text-white mb-3">Create and Manage your Investment
-                                                            appointments easily at your own very personalized space.</h2>
-                                                        <p class="lead opacity-75">You are at the best Adminuiux Investment
-                                                            UX<br>HTML template demo preview</p>
-                                                    </div>
-                                                </div>
-                                                <!-- pagination -->
-                                                <div class="swiper-pagination white bottom-0"></div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
+                            <!-- Password -->
+                            <div class="mb-3 position-relative">
+                                <label class="form-label">{{ __('Password') }}</label>
+                                <input type="password" id="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="current-password" placeholder="••••••••" required>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                <button class="eye-btn" type="button" onclick="togglePassword()">
+                                    <i class="bi bi-eye"></i>
+                                </button>
                             </div>
-                        </div>
+
+                            <!-- Remember + Forgot -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember">
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember me') }}
+                                    </label>
+                                </div>
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+
+                            <!-- Login button -->
+                            <button type="submit" class="btn btn-primary w-100 btn-login mb-3">
+                                {{ __('Login') }}
+                            </button>
+
+                            <!-- Register -->
+                            <p class="text-center mb-0">
+                                {{ __('Don’t have an account?') }}
+                                @if (Route::has('register'))
+                                                    <a class="fw-semibold text-decoration-none"
+                                                        href="{{ route('register') }}">{{ __('Create Account') }}</a>
+                                                @endif
+                            </p>
+                        </form>
                     </div>
 
                 </div>
             </div>
-        </main>
+        </div>
+    </div>
 
-        <!-- Page Level js -->
-        <script  src="{{ asset('assets') }}/js/investment/investment-auth.js"></script>
+    <script>
+        function togglePassword() {
+            const password = document.getElementById('password');
+            const icon = document.getElementById('eyeIcon');
 
-    </body>
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
+            }
+        }
+    </script>
 
-    </html>
+</body>
 
+</html>

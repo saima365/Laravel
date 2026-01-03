@@ -1,4 +1,4 @@
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 
@@ -178,8 +178,8 @@
                             <div class="row h-100 align-items-center justify-content-center ">
                                 <div class="col-11 col-sm-8 col-md-11 col-xl-11 col-xxl-10 login-box">
                                     <div class="text-center mb-4">
-                                        <h1 class="mb-3">Let's get started&#128077;</h1>
-                                        <p class="text-secondary">Provide your few details</p>
+                                        <h1 class="mb-3">{{ __("Let's get started") }}&#128077;</h1>
+                                        <p class="text-secondary">{{ __('Provide your few details') }}</p>
                                     </div>
                                     <form method="POST" action="{{ route('register') }}">
                                         @csrf
@@ -201,29 +201,38 @@
                                             </div>
                                             <div class="col">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text"  class="form-control @error('fname') is-invalid @enderror"
+                                                    <input type="text"
+                                                        class="form-control @error('lname') is-invalid @enderror"
                                                         name="lname" value="{{ old('lname') }}" required
                                                         autocomplete="lname" autofocus id="namel"
                                                         placeholder="Enter last name" value="{{ old('lname') }}">
-                                                          @error('fname')
+                                                    @error('lname')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
-                                                    <label for="namel">Last Name</label>
+                                                    <label for="namel">{{ __('Last Name') }}</label>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="emailadd"
-                                                placeholder="Enter email address" value="info@adminuiux">
-                                            <label for="emailadd">Email Address</label>
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror"
+                                                name="email" value="{{ old('email') }}" required
+                                                autocomplete="email" id="emailadd" placeholder="Enter email address"
+                                                value="info@adminuiux">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                            <label for="emailadd">{{ __('Email Address') }}</label>
                                         </div>
 
 
                                         <div class="input-group mb-3">
-                                            <div class="form-floating maxwidth-100">
+                                            {{-- <div class="form-floating maxwidth-100">
                                                 <select class="form-select" id="code" aria-label="Country code">
                                                     <option value="1">+1</option>
                                                     <option selected>+44</option>
@@ -231,12 +240,15 @@
                                                     <option value="2">+91</option>
                                                 </select>
                                                 <label for="code">Code</label>
-                                            </div>
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="phonen"
+                                            </div> --}}
+                                            {{-- <div class="form-floating">
+                                                <input type="text"
+                                                    class="form-control @error('phone') is-invalid @enderror"
+                                                    name="phone" value="{{ old('phone') }}" required
+                                                    autocomplete="phone" id="phonen"
                                                     placeholder="Enter your phone number">
-                                                <label for="phonen">Phone Number</label>
-                                            </div>
+                                                <label for="phonen">{{ __('Phone Number') }}</label>
+                                            </div> --}}
                                         </div>
 
                                         <div class="position-relative">
@@ -273,9 +285,10 @@
 
                                         <div class="position-relative">
                                             <div class="form-floating mb-3">
-                                                <input type="password" class="form-control" id="passwd"
-                                                    placeholder="Confirm your password">
-                                                <label for="passwd">Confirm Password</label>
+                                                <input type="password" id="password-confirm" type="password"
+                                                    class="form-control" name="password_confirmation" required
+                                                    autocomplete="new-password" placeholder="Confirm your password">
+                                                <label for="passwd">{{ __('Confirm Password') }}</label>
                                             </div>
                                             <button
                                                 class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2 ">
@@ -283,8 +296,8 @@
                                             </button>
                                         </div>
 
-                                        <a href="investment-signup-success.html"
-                                            class="btn btn-lg btn-theme w-100 mb-4">Sign up</a>
+                                        <button type="submit"
+                                            class="btn btn-lg btn-theme w-100 mb-4">{{ __('Sign up') }}</button>
                                         <!-- <button class="btn btn-lg btn-theme w-100 mb-4">Login</button> -->
                                         <div class="text-center mb-3">
                                             Already have account? <a href="investment-login.html"
@@ -296,7 +309,7 @@
                                                 <hr class="">
                                             </div>
                                             <div class="col-auto">
-                                                <p class="text-secondary">OR Continue with</p>
+                                                <p class="text-secondary">{{ __('OR Continue with') }}</p>
                                             </div>
                                             <div class="col">
                                                 <hr class="">

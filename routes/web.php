@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
@@ -12,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('layout.erp.app');
 // });
-route::get("/",[DashboardController::class,"index"]);
+
+Route::get('/', function () {
+    return view("pages.erp.dashboard.index");
+});
 // Route::get('/students', function () {
 //     return view('students');
 // });
@@ -23,6 +27,9 @@ route::get("/",[DashboardController::class,"index"]);
 // return view("students",["id"=>$id,"name"=>$name,"student"=>$student]);
 
 // });
+Route::middleware('auth')->group(function () {
+
+route::get("/",[DashboardController::class,"index"]);
 route::get("/students",[StudentController::class,"index"]);
 route::get("/student/create",[StudentController::class,"create"]);
 route::get("/student/{id}",[StudentController::class,"delete"]);
@@ -41,9 +48,11 @@ Route::get('/mail', function () {
 route::fallback(function(){
    return "<h1>404 not Found</h1>";
 });
-
+});
 
 
 Auth::routes();
 
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
