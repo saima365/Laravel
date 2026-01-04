@@ -44,7 +44,7 @@
             <li class="nav-item">
                 <a href="{{URL("wallet")}}" class="nav-link">
                     <i class="menu-icon bi bi-wallet"></i>
-                    <span class="menu-name">Wallet</span>
+                    <span class="menu-name">Card Services</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -53,28 +53,49 @@
                     <span class="menu-name">My Goals</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="investment-loan-list.html" class="nav-link">
-                    <i class="menu-icon bi bi-cash-stack"></i>
-                    <span class="menu-name">My Loans</span>
-                </a>
-            </li>
+
             <li class="nav-item dropdown">
                 <a href="javascrit:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <i class="menu-icon bi bi-piggy-bank"></i>
-                    <span class="menu-name">Investment</span>
+                    <i class="menu-icon bi bi-cash-stack"></i>
+                    <span class="menu-name">Accounts</span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="nav-item">
                         <a href="investment-company-shares.html" class="nav-link">
                             <i class="menu-icon bi bi-bank"></i>
-                            <span class="menu-name">Company Share</span>
+                            <span class="menu-name">Savings Account</span>
                         </a>
                     </div>
                     <div class="nav-item">
                         <a href="investment-mutual-funds.html" class="nav-link">
                             <i class="menu-icon bi bi-cash-coin"></i>
-                            <span class="menu-name">Mutual Fund</span>
+                            <span class="menu-name">Fixed Deposit</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="investment-deposit.html" class="nav-link">
+                            <i class="menu-icon bi bi-percent"></i>
+                            <span class="menu-name">DPS</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="javascrit:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="menu-icon bi bi-piggy-bank"></i>
+                    <span class="menu-name">Transactions</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="nav-item">
+                        <a href="investment-company-shares.html" class="nav-link">
+                            <i class="menu-icon bi bi-bank"></i>
+                            <span class="menu-name">Payments</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="investment-mutual-funds.html" class="nav-link">
+                            <i class="menu-icon bi bi-cash-coin"></i>
+                            <span class="menu-name">Loans</span>
                         </a>
                     </div>
                     <div class="nav-item">
