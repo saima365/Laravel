@@ -2,80 +2,110 @@
 
 
 
- @section("content")
-<div class="container mt-4 align-middle">
-  <div class="card adminuiux-card mb-4">
-                            <div class="card-header">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <p class="h6">Standard Floating labels</p>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button type="button" class="btn btn-outline-theme btn-square" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">
-                                            <i class="bi bi-code-slash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body ">
-                                <div class="form-floating mb-3 ">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                    <label for="floatingPassword">Password</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                    <label for="floatingTextarea">Comments</label>
-                                </div>
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <label for="floatingSelect">Works with selects</label>
-                                </div>
-                            </div>
-                            <div class="collapse" id="collapse1">
-                                <div class="card-footer border-top">
-                                    <div class="bg-dark text-white p-2 rounded my-2">
-                                        <pre class="mb-2"><code class="code rounded language-html">
-            &lt;div class="form-floating mb-3"&gt;
-                &lt;input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"&gt;
-                &lt;label for="floatingInput"&gt;Email address&lt;/label&gt;
-            &lt;/div&gt;
+ @section('content')
+     <div class="container py-5">
+         <div class="row justify-content-center">
+             <div class="col-xl-7 col-lg-8 col-md-10 col-12">
 
-            &lt;div class="form-floating"&gt;
-                &lt;input type="password" class="form-control" id="floatingPassword" placeholder="Password"&gt;
-                &lt;label for="floatingPassword"&gt;Password&lt;/label&gt;
-            &lt;/div&gt;
+                 <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
 
-            &lt;div class="form-floating"&gt;
-                &lt;textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"&gt;&lt;/textarea&gt;
-                &lt;label for="floatingTextarea"&gt;Comments&lt;/label&gt;
-            &lt;/div&gt;
+                     <!-- Header -->
+                     <div class="card-header bg-gradient text-white py-4"
+                         style="background: linear-gradient(135deg, #4e73df, #1cc88a);">
+                         <div class="d-flex align-items-center justify-content-between">
+                             <div>
+                                 <h4 class="mb-1 fw-bold">Edit Customer</h4>
+                                 <small class="opacity-75">Update customer information</small>
+                             </div>
+                             <i class="bi bi-person-lines-fill fs-1 opacity-50"></i>
+                         </div>
+                     </div>
 
-            &lt;div class="form-floating"&gt;
-                &lt;select class="form-select" id="floatingSelect" aria-label="Floating label select example"&gt;
-                    &lt;option selected&gt;Open this select menu&lt;/option&gt;
-                    &lt;option value="1"&gt;One&lt;/option&gt;
-                    &lt;option value="2"&gt;Two&lt;/option&gt;
-                    &lt;option value="3"&gt;Three&lt;/option&gt;
-                &lt;/select&gt;
-                &lt;label for="floatingSelect"&gt;Works with selects&lt;/label&gt;
-            &lt;/div&gt;
-            </code></pre>
-                                        <button type="button" class="btn btn-outline-light  btn-square copycode"><i class="bi bi-clipboard"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     <!-- Body -->
+                     <div class="card-body p-4 p-md-5 bg-light">
+                         <form action="{{ URL('customer/update', $customer->id) }}" method="POST"
+                             enctype="multipart/form-data" class="p-4 border rounded">
+                             @csrf
 
+                             <!-- Profile -->
+                             <div class="text-center mb-4">
+                                 <img src="https://via.placeholder.com/120" class="rounded-circle shadow mb-3"
+                                     width="120" height="120">
+                                 <div>
+                                     <label class="btn btn-sm btn-outline-primary">
+                                         <i class="bi bi-camera"></i> Change Photo
+                                         <input type="file" hidden name="img">
+                                     </label>
+                                 </div>
+                             </div>
 
-                    
-             @endsection
+                             <!-- Name -->
+                             <div class="form-floating mb-3">
+                                 <input type="text" class="form-control shadow-sm" id="name" placeholder="Full Name"
+                                     value="{{ $customer->name }}" name="name">
+                                 <label for="name"><i class="bi bi-person me-2"></i>Full Name</label>
+                             </div>
+
+                             <!-- Email -->
+                             <div class="form-floating mb-3">
+                                 <input type="email" class="form-control shadow-sm" id="email" placeholder="Email"
+                                     value="{{ $customer->email }}" name="email">
+                                 <label for="email"><i class="bi bi-envelope me-2"></i>Email Address</label>
+                             </div>
+
+                             <!-- Phone -->
+                             <div class="form-floating mb-3">
+                                 <input type="text" class="form-control shadow-sm" id="phone" placeholder="Phone"
+                                     value="{{ $customer->phone }}" name="phone">
+                                 <label for="phone"><i class="bi bi-telephone me-2"></i>Phone Number</label>
+                             </div>
+
+                             <!-- Address -->
+                             <div class="form-floating mb-3">
+                                 <textarea class="form-control shadow-sm" id="address" placeholder="Address" style="height: 110px" name="address">{{ $customer->address }}"</textarea>
+                                 <label for="address"><i class="bi bi-geo-alt me-2"></i>Address</label>
+                             </div>
+
+                             <!-- Gender & Status -->
+                             <div class="row g-3">
+                                 <div class="col-md-6">
+                                     <div class="form-floating">
+                                         <select class="form-select shadow-sm" id="gender" name="gender">
+                                             <option selected>Male</option>
+                                             <option>Female</option>
+                                             <option>Other</option>
+                                         </select>
+                                         <label for="gender"><i class="bi bi-gender-ambiguous me-2"></i>Gender</label>
+                                     </div>
+                                 </div>
+
+                                 <div class="col-md-6">
+                                     <div class="form-floating">
+                                         <select class="form-select shadow-sm" id="status" name="status">
+                                             <option selected>Active</option>
+                                             <option>Inactive</option>
+                                         </select>
+                                         <label for="status"><i class="bi bi-toggle-on me-2"></i>Status</label>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <!-- Buttons -->
+                             <div class="d-flex justify-content-end gap-3 mt-5">
+                                 <a href="{{ URL('/customers') }}" class="btn btn-outline-secondary px-4">
+                                     <i class="bi bi-arrow-left"></i> Back
+                                 </a>
+                                 <button type="submit" class="btn btn-primary px-4 shadow">
+                                     <i class="bi bi-check-circle"></i> Update
+                                 </button>
+                             </div>
+
+                         </form>
+                     </div>
+
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ @endsection

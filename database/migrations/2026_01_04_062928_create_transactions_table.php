@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->integer('account_id');
+            $table->integer('transaction_type_id');
+            $table->decimal('amount');
+            $table->decimal('balance_before')->nullable();
+            $table->decimal('balance_after');
+            $table->integer('transfer_to');
+            $table->string('description');
             $table->timestamps();
         });
     }

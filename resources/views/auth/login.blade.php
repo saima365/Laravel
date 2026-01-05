@@ -15,7 +15,7 @@
     <style>
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            background: linear-gradient(135deg, #bd1292, #1406d485);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -30,8 +30,8 @@
         }
 
         .login-header {
-            background: linear-gradient(135deg, #4f46e5, #6366f1);
-            color: #fff;
+            background: linear-gradient(135deg, #cdcfbab6, #86da39a1);
+            color: #181717;
             padding: 2rem;
             text-align: center;
         }
@@ -129,7 +129,7 @@
                             </div>
 
                             <!-- Login button -->
-                            <button type="submit" class="btn btn-primary w-100 btn-login mb-3">
+                            <button type="submit" class="btn btn-danger w-100 btn-login mb-3">
                                 {{ __('Login') }}
                             </button>
 
