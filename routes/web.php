@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WalletController;
 use App\Mail\UserNotification;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,7 @@ route::delete("/customer/delete/{id}",[CustomerController::class,"delete"]);
 route::get("/customer/edit/{id}",[CustomerController::class,"edit"]);
 route::post("/customer/update/{id}",[CustomerController::class,"update"]);
 route::get("/wallet",[WalletController::class,"index"]);
+route::get("/transaction",[TransactionController::class,"index"]);
 Route::get('/mail', function () {
     Mail::to("afrinakthertithebhuiyan@gmail.com")->send(new UserNotification);
     return "Mail sent successfully";

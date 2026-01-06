@@ -87,6 +87,12 @@
                 </a>
                 <div class="dropdown-menu">
                     <div class="nav-item">
+                        <a href="{{URL("/transaction")}}" class="nav-link">
+                            <i class="menu-icon bi bi-bank"></i>
+                            <span class="menu-name">Transaction Details</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
                         <a href="investment-company-shares.html" class="nav-link">
                             <i class="menu-icon bi bi-bank"></i>
                             <span class="menu-name">Payments</span>
