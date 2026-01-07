@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
@@ -42,6 +43,8 @@ route::get("/customer/edit/{id}",[CustomerController::class,"edit"]);
 route::post("/customer/update/{id}",[CustomerController::class,"update"]);
 route::get("/wallet",[WalletController::class,"index"]);
 route::get("/transaction",[TransactionController::class,"index"]);
+route::get("/account",[AccountController::class,"index"]);
+route::get("/account/create",[AccountController::class,"create"]);
 Route::get('/mail', function () {
     Mail::to("afrinakthertithebhuiyan@gmail.com")->send(new UserNotification);
     return "Mail sent successfully";

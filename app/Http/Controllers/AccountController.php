@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TransactionController extends Controller
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        
-        return view("pages.erp.transaction.index");
+       return view("pages.erp.account.index");
     }
 
     /**
@@ -20,7 +19,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+       return view("pages.erp.account.create");
     }
 
     /**
