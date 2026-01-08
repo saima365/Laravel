@@ -15,7 +15,7 @@ class CustomerController extends Controller
         // echo "customer controller";
     }
     function create(){
-        return view("customer.create");
+        return view("pages.erp.customer.create");
     }
     function save(Request $request){
         print_r($request->all());
@@ -24,6 +24,9 @@ class CustomerController extends Controller
         $customer->email= $request->email;
         $customer->phone= $request->phone;
         $customer->address= $request->address;
+        $customer->gender= $request->gender;
+        $customer->date_of_birth= $request->date_of_birth;
+        $customer->status= $request->status;
         $customer->save();
         return redirect("customers");
     }
@@ -39,6 +42,9 @@ class CustomerController extends Controller
         $customer->email= $request->email;
         $customer->phone= $request->phone;
         $customer->address= $request->address;
+        $customer->gender= $request->gender;
+        $customer->date_of_birth= $request->date_of_birth;
+        $customer->status= $request->status;
         $customer->update();
         return redirect("customers");
     }

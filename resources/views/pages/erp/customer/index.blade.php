@@ -15,10 +15,10 @@
         <nav aria-label="breadcrumb" class="mb-2">
           <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item bi"><a href="investment-dashboard.html">Home</a></li>
-            <li class="breadcrumb-item active bi" aria-current="page">Users</li>
+            <li class="breadcrumb-item active bi" aria-current="page">Clients</li>
           </ol>
         </nav>
-        <h5>Users</h5>
+        <h5>Account Holders</h5>
       </div>
       <div class="col-auto py-1">
         <button class="btn btn-sm btn-outline-theme" data-bs-toggle="modal" data-bs-target="#createuser"><i class="bi bi-plus me-1"></i>

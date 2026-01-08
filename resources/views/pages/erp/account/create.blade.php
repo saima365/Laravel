@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="card-body p-4">
-                    <form enctype="multipart/form-data">
+                    <form action="{{Url('account/save')}}" enctype="multipart/form-data">
 
                         <!-- Photo -->
                         <div class="row mb-3">
@@ -33,7 +33,7 @@
                                 <label class="form-label">
                                     <i class="bi bi-image"></i> Account Holder Photo
                                 </label>
-                                <input type="file" class="form-control">
+                                <input type="file" class="form-control" name="img">
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" placeholder="Account Number">
+                                    <input type="text" class="form-control" placeholder="Account Number" name="account_number">
                                     <label>
                                         <i class="bi bi-credit-card me-1"></i>Account Number
                                     </label>
@@ -50,14 +50,11 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select">
-                                        <option selected disabled>Select Customer</option>
-                                        <option>John Doe</option>
-                                        <option>Jane Smith</option>
-                                    </select>
+                                    <input type="text" class="form-control" placeholder="Account Number" name="name">
                                     <label>
                                         <i class="bi bi-person me-1"></i>Customer Name
                                     </label>
+
                                 </div>
                             </div>
                         </div>
@@ -66,7 +63,7 @@
                         <div class="row g-3 mt-2">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" class="form-control" placeholder="Email" name="email">
                                     <label>
                                         <i class="bi bi-envelope me-1"></i>Email
                                     </label>
@@ -75,7 +72,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="tel" class="form-control" placeholder="Phone">
+                                    <input type="tel" class="form-control" placeholder="Phone" name="phone">
                                     <label>
                                         <i class="bi bi-telephone me-1"></i>Phone
                                     </label>
@@ -85,7 +82,7 @@
 
                         <!-- Address -->
                         <div class="form-floating mt-3">
-                            <textarea class="form-control" style="height: 90px" placeholder="Address"></textarea>
+                            <textarea class="form-control" style="height: 90px" placeholder="Address" name="address"></textarea>
                             <label>
                                 <i class="bi bi-house-door me-1"></i>Address
                             </label>
@@ -95,7 +92,7 @@
                         <div class="row g-3 mt-2">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" name="date_of_birth">
                                     <label>
                                         <i class="bi bi-calendar-event me-1"></i>Date of Birth
                                     </label>
@@ -104,7 +101,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select">
+                                    <select class="form-select" name="branch">
                                         <option selected disabled>Select Branch</option>
                                         <option>Main Branch</option>
                                         <option>Uttara Branch</option>
@@ -120,7 +117,7 @@
                         <div class="row g-3 mt-2">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select">
+                                    <select class="form-select" name="account_type">
                                         <option selected disabled>Select Account Type</option>
                                         <option>Savings</option>
                                         <option>Current</option>
@@ -134,7 +131,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select">
+                                    <select class="form-select" name="currency">
                                         <option selected disabled>Select Currency</option>
                                         <option>BDT</option>
                                         <option>USD</option>
@@ -151,7 +148,7 @@
                         <div class="row g-3 mt-2">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" placeholder="Balance">
+                                    <input type="number" class="form-control" placeholder="Balance" name="opening_balance">
                                     <label>
                                         <i class="bi bi-cash-stack me-1"></i>Opening Balance
                                     </label>
@@ -160,7 +157,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select">
+                                    <select class="form-select" name="status">
                                         <option selected disabled>Select Status</option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>
@@ -169,6 +166,23 @@
                                     <label>
                                         <i class="bi bi-toggle-on me-1"></i>Status
                                     </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+
+                                    <select class="form-select" name="role">
+                                        <option selected disabled>Select Role</option>
+                                        <option value="active">Admin</option>
+                                        <option value="inactive">Customer</option>
+                                        <option value="blocked">Manager</option>
+                                        <option value="blocked">Cashier</option>
+                                        <option value="blocked">Accounts Officer</option>
+                                        <option value="blocked">Loan Officer</option>
+                                        <option value="blocked">Accountant</option>
+                                        <option value="blocked">HR</option>
+                                    </select>
+
                                 </div>
                             </div>
                         </div>

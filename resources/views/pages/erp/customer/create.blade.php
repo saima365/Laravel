@@ -1,4 +1,5 @@
-<form action="{{URL("customer/save")}}" method="POST" enctype="multipart/form-data" class="p-4 border rounded">
+
+<form action="{{URL("customer/save")}}" method="POST" enctype="multipart/form-data" >
     @csrf
  <div class="modal adminuiux-modal fade" id="createuser" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -330,3 +331,4 @@
      </div>
  </div>
 </form>
+

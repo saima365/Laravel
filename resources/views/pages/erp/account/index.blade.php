@@ -19,9 +19,9 @@
             <h5 class="mb-0">
                 <i class="bi bi-bank me-2"></i>Account Details List
             </h5>
-            <button class="btn btn-light btn-sm">
+            <a class="btn btn-light btn-sm" href="{{Url('/account/create')}}">
                 <i class="bi bi-plus-circle"></i> Create Account
-            </button>
+            </a>
         </div>
 
         <div class="card-body p-0">
