@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Brunche;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -27,12 +29,13 @@ class AccountController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function save(Request $request)
     {
        $request->validate(
         [
             "name"=>"required|min:3",
             "email"=>"email|unique:customers,email",
+            "account_number"=>"account_number|unique:customers,email",
             "address"=>"required|min:4",
             "phone"=>"required|min:4",
             'opening_balance' => 'required|numeric|digits_between:4,12',
@@ -50,10 +53,34 @@ class AccountController extends Controller
             "opening_balance.required"=>"This Field Required",
             "status.required"=>"This Field Required",
             "role.required"=>"This Field Required",
-        ]
+            "account_number.required"=>"This Field Required",
+        ]);
+        $account= new Account();
+        $account->img=$request->img;
+        $account->customer_id=$request->customer_id;
+        $account->branch_id=$request->brunch_id;
+        $account->account_type=$request->account_type;
+        $account->balance=$request->balance;
+        $account->currency=$request->currency;
+        $account->status=$request->status;
+        $account->account_number=$request->account_number;
+        $account->save();
 
 
-       );
+        $customer= new Customer();
+        $customer->name= $request->name;
+        $customer->email= $request->email;
+        $customer->phone= $request->phone;
+        $customer->address= $request->address;
+        $customer->gender= $request->gender;
+        $customer->date_of_birth= $request->date_of_birth;
+        $customer->status= $request->status;
+        $customer->save();
+        $account->customer_id= $customer->id;
+        $account->branch_id= $request->branch_id;
+        $account->save();
+
+        return redirect("account");
     }
 
     /**

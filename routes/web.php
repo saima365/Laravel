@@ -40,6 +40,7 @@ route::get("/customer/create",[CustomerController::class,"create"]);
 route::post("/customer/save",[CustomerController::class,"save"]);
 route::delete("/customer/delete/{id}",[CustomerController::class,"delete"]);
 route::get("/customer/edit/{id}",[CustomerController::class,"edit"]);
+route::get("/customer/show",[CustomerController::class,"show"]);
 route::post("/customer/update/{id}",[CustomerController::class,"update"]);
 route::get("/wallet",[WalletController::class,"index"]);
 route::get("/transaction",[TransactionController::class,"index"]);

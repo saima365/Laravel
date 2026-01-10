@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("img")->nullable(true);
             $table->string("national_id")->nullable(true);
             $table->string("status")->nullable(true);
+            $table->integer("account_id");
         });
     }
 

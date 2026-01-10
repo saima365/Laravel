@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="card-body p-4">
-                    <form action="{{Url('account/save')}}" enctype="multipart/form-data">
-
+                    <form action="{{Url('account/save')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <!-- Photo -->
                         <div class="row mb-3">
                             <div class="col-md-6">
@@ -34,6 +34,7 @@
                                     <i class="bi bi-image"></i> Account Holder Photo
                                 </label>
                                 <input type="file" class="form-control" name="img">
+                                 @error('img')<div class="invalid-feedback">{{ $message }}</div>@enderror
                             </div>
                         </div>
 
@@ -42,6 +43,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" placeholder="Account Number" name="account_number">
+                                     @error('account_number')<div class="invalid-feedback">{{ $message }}</div>@enderror
                                     <label>
                                         <i class="bi bi-credit-card me-1"></i>Account Number
                                     </label>
@@ -78,7 +80,28 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control" placeholder="Phone" name="nid">
+                                    <label>
+                                         <i class="bi bi-person-badge me-1"></i> NID
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                             <div class="form-floating">
+                                    <select class="form-select" name="gender">
+                                        <option selected disabled>Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Others</option>
+                                    </select>
+                                    <label>
+                                        <i class="bi bi-gender-ambiguous me-1"></i> Gender
+                                    </label>
+                                </div>
+                                </div>
+                             </div>
 
                         <!-- Address -->
                         <div class="form-floating mt-3">
@@ -182,7 +205,9 @@
                                         <option value="blocked">Accountant</option>
                                         <option value="blocked">HR</option>
                                     </select>
-
+                                    <label>
+                                       <i class="bi bi-person-badge me-1"></i> Roles
+                                    </label>
                                 </div>
                             </div>
                         </div>

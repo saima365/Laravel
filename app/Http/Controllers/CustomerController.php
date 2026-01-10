@@ -52,4 +52,9 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         return view("pages.erp.customer.edit", compact("customer"));
     }
+
+     public function show()
+    {
+         return view("pages.erp.customer.show");
+    }
 }

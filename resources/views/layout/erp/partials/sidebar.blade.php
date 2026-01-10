@@ -57,9 +57,15 @@
             <li class="nav-item dropdown">
                 <a href="javascrit:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <i class="menu-icon bi bi-cash-stack"></i>
-                    <span class="menu-name">Accounts</span>
+                    <span class="menu-name">Account Management</span>
                 </a>
                 <div class="dropdown-menu">
+                    <div class="nav-item">
+                        <a href="{{URL("/account")}}" class="nav-link">
+                            <i class="menu-icon bi bi-bank"></i>
+                            <span class="menu-name">Accounts</span>
+                        </a>
+                    </div>
                     <div class="nav-item">
                         <a href="investment-company-shares.html" class="nav-link">
                             <i class="menu-icon bi bi-bank"></i>
@@ -83,13 +89,13 @@
             <li class="nav-item dropdown">
                 <a href="javascrit:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <i class="menu-icon bi bi-piggy-bank"></i>
-                    <span class="menu-name">Transactions</span>
+                    <span class="menu-name">Transaction Management</span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="nav-item">
                         <a href="{{URL("/transaction")}}" class="nav-link">
                             <i class="menu-icon bi bi-bank"></i>
-                            <span class="menu-name">Transaction Details</span>
+                            <span class="menu-name">Transactions</span>
                         </a>
                     </div>
                     <div class="nav-item">

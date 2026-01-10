@@ -99,9 +99,10 @@
               <td>{{$customer->address}}</td>
 
 
-              <td><a href="investment-myprofile.html" class="btn btn-square btn-link" data-bs-toggle="tooltip" title="View">
+              <td><a href="{{URL("customer/show")}}" class="btn btn-square btn-link" data-bs-toggle="modal" data-bs-target="#accountDetailsModal" title="View">
                   <i class="bi bi-eye"></i>
                 </a>
+                @include('pages.erp.customer.show')
                 <div class="dropdown d-inline-block">
                   <a class="btn btn-link no-caret" data-bs-toggle="dropdown">
                     <i class="bi bi-three-dots"></i>
