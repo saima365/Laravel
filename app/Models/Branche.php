@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Brunche extends Model
+class Branche extends Model
 {
     //
 }

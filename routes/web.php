@@ -46,6 +46,7 @@ route::get("/wallet",[WalletController::class,"index"]);
 route::get("/transaction",[TransactionController::class,"index"]);
 route::get("/account",[AccountController::class,"index"]);
 route::get("/account/create",[AccountController::class,"create"]);
+route::post("/account/save",[AccountController::class,"save"]);
 Route::get('/mail', function () {
     Mail::to("afrinakthertithebhuiyan@gmail.com")->send(new UserNotification);
     return "Mail sent successfully";

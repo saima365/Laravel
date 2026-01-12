@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('customer_id');
-            $table->integer('branch_id');
+            $table->integer('customer_id')->nullable();
+            $table->integer('branch_id')->nullable();
             $table->string('account_type');
             $table->decimal('balance')->nullable();
             $table->string('currency');

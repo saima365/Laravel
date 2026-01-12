@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
-use App\Models\Brunche;
+use App\Models\Branche;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AccountController extends Controller
 {
@@ -15,7 +17,8 @@ class AccountController extends Controller
     public function index()
     {
        $accounts= Account::all();
-       return view("pages.erp.account.index", compact("accounts"));
+       $branches=Branche::all();
+       return view("pages.erp.account.index", compact("accounts","branches"));
     }
 
     /**
@@ -35,11 +38,11 @@ class AccountController extends Controller
         [
             "name"=>"required|min:3",
             "email"=>"email|unique:customers,email",
-            "account_number"=>"account_number|unique:customers,email",
             "address"=>"required|min:4",
             "phone"=>"required|min:4",
             'opening_balance' => 'required|numeric|digits_between:4,12',
             "img"=>"image|mimes:png,jpg,jpeg,webp|max:2048",
+
         ],
         [
             "name.required"=>"please give a name",
@@ -55,32 +58,46 @@ class AccountController extends Controller
             "role.required"=>"This Field Required",
             "account_number.required"=>"This Field Required",
         ]);
+        $img = "";
+        $imgname = "";
+         if ($request->hasFile("img")) {
+            $slug = Str::slug($request->name);
+            $imgname = $slug . "." . $request->file("img")->extension();
+            $request->file("img")->storeAs("img/customer", $imgname, "public");
+        }
         $account= new Account();
-        $account->img=$request->img;
-        $account->customer_id=$request->customer_id;
         $account->branch_id=$request->brunch_id;
         $account->account_type=$request->account_type;
         $account->balance=$request->balance;
         $account->currency=$request->currency;
         $account->status=$request->status;
         $account->account_number=$request->account_number;
+        $account->branch_id= $request->branch_id;
         $account->save();
 
 
         $customer= new Customer();
+        $customer->img=$imgname;
         $customer->name= $request->name;
         $customer->email= $request->email;
         $customer->phone= $request->phone;
         $customer->address= $request->address;
         $customer->gender= $request->gender;
+        $customer->national_id= $request->national_id;
         $customer->date_of_birth= $request->date_of_birth;
         $customer->status= $request->status;
+        $customer->account_id= $account->id;
         $customer->save();
-        $account->customer_id= $customer->id;
-        $account->branch_id= $request->branch_id;
-        $account->save();
 
-        return redirect("account");
+        $branch= new Branche();
+        $branch->name=$request->name;
+
+         $account->customer_id= $customer->id;
+         $account->branch_id= $branch->id;
+
+        // $account->role_id= $request->role_id;
+        $account->save();
+        return redirect("/account");
     }
 
     /**

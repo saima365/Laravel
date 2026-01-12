@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="tel" class="form-control" placeholder="Phone" name="nid">
+                                    <input type="tel" class="form-control" placeholder="Phone" name="national_id">
                                     <label>
                                          <i class="bi bi-person-badge me-1"></i> NID
                                     </label>
@@ -124,7 +124,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select" name="branch">
+                                    <select class="form-select" name="branch_id">
                                         <option selected disabled>Select Branch</option>
                                         <option>Main Branch</option>
                                         <option>Uttara Branch</option>
@@ -171,7 +171,7 @@
                         <div class="row g-3 mt-2">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" placeholder="Balance" name="opening_balance">
+                                    <input type="number" class="form-control" placeholder="Balance" name="balance">
                                     <label>
                                         <i class="bi bi-cash-stack me-1"></i>Opening Balance
                                     </label>
@@ -194,16 +194,11 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
 
-                                    <select class="form-select" name="role">
+                                    <select class="form-select" name="role_id">
                                         <option selected disabled>Select Role</option>
                                         <option value="active">Admin</option>
-                                        <option value="inactive">Customer</option>
-                                        <option value="blocked">Manager</option>
-                                        <option value="blocked">Cashier</option>
-                                        <option value="blocked">Accounts Officer</option>
-                                        <option value="blocked">Loan Officer</option>
-                                        <option value="blocked">Accountant</option>
-                                        <option value="blocked">HR</option>
+                                        <option value="active">Client</option>
+
                                     </select>
                                     <label>
                                        <i class="bi bi-person-badge me-1"></i> Roles

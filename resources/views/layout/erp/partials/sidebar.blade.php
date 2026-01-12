@@ -32,7 +32,7 @@
             <li class="nav-item">
                 <a href="{{URL("")}}" class="nav-link">
                     <i class="menu-icon bi bi-people"></i>
-                    <span class="menu-name">Users</span>
+                    <span class="menu-name">Roles</span>
                 </a>
             </li>
             <li class="nav-item">
