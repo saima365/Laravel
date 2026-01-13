@@ -17,8 +17,9 @@ class AccountController extends Controller
     public function index()
     {
        $accounts= Account::all();
-       $branches=Branche::all();
-       return view("pages.erp.account.index", compact("accounts","branches"));
+    //    $branches=Branche::all();
+       $customers=Customer::all();
+       return view("pages.erp.account.index", compact("accounts","customers"));
     }
 
     /**
@@ -40,8 +41,9 @@ class AccountController extends Controller
             "email"=>"email|unique:customers,email",
             "address"=>"required|min:4",
             "phone"=>"required|min:4",
-            'opening_balance' => 'required|numeric|digits_between:4,12',
+            'balance' => 'required|numeric|digits_between:4,12',
             "img"=>"image|mimes:png,jpg,jpeg,webp|max:2048",
+            'account_number' => 'required|numeric|unique:accounts,account_number'
 
         ],
         [
@@ -50,13 +52,13 @@ class AccountController extends Controller
             "phone.required"=>"please Enter your phone number",
             "img.required"=>"please select a photo",
             "date_of_birth.required"=>"please give your Birth date",
-            "branch.required"=>"This Field Required",
-            "account_type.required"=>"This Field Required",
-            "currency.required"=>"This Field Required",
-            "opening_balance.required"=>"This Field Required",
-            "status.required"=>"This Field Required",
-            "role.required"=>"This Field Required",
-            "account_number.required"=>"This Field Required",
+            "branch.required"=>"Branch Field Required",
+            "account_type.required"=>"account type Field Required",
+            "currency.required"=>"currency Field Required",
+            "balance.required"=>"opening_balance Field Required",
+            "status.required"=>"status Field Required",
+            "role.required"=>"role Field Required",
+            "account_number.required"=>"account_number Field Required",
         ]);
         $img = "";
         $imgname = "";
@@ -76,6 +78,8 @@ class AccountController extends Controller
         $account->save();
 
 
+        // return    $account;
+
         $customer= new Customer();
         $customer->img=$imgname;
         $customer->name= $request->name;
@@ -89,15 +93,7 @@ class AccountController extends Controller
         $customer->account_id= $account->id;
         $customer->save();
 
-        $branch= new Branche();
-        $branch->name=$request->name;
-
-         $account->customer_id= $customer->id;
-         $account->branch_id= $branch->id;
-
-        // $account->role_id= $request->role_id;
-        $account->save();
-        return redirect("/account");
+        return redirect("account");
     }
 
     /**

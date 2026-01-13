@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('customers', function (Blueprint $table) {
             $table->date("date_of_birth")->nullable(true);
             $table->string("gender")->nullable(true);
-            $table->string("img")->nullable(true);
+            $table->string("img");
             $table->string("national_id")->nullable(true);
             $table->string("status")->nullable(true);
             $table->integer("account_id")->nullable(true);

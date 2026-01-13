@@ -34,7 +34,7 @@
                             <th>Account Number</th>
                             <th>Customer Name</th>
                             <th>Address</th>
-                            <th>Branch</th>
+                            {{-- <th>Branch</th> --}}
                             <th>Account Type</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
@@ -46,14 +46,14 @@
                           <tr>
                             <td>{{$account->id}}</td>
                             <td>
-                                <img src="{{asset("")}}"
+                                <img src="{{ asset('storage/img/customer/' . $account->customer?->img) }}"
                                      class="rounded-circle border"
                                      width="40" height="40">
                             </td>
                             <td>{{$account->account_number}}</td>
-                            <td>{{$account->name}}</td>
+                            <td>{{$account->customer?->name}}</td>
                             <td>{{$account->address}}</td>
-                            <td>{{$branch->name}}</td>
+                            {{-- <td>{{$branch->name}}</td> --}}
                             <td>{{$account->account_type}}</td>
                             <td>
                                 <span class="badge bg-success">{{$account->status}}</span>

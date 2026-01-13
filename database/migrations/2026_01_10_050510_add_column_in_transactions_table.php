@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transactions', function (Blueprint $table) {
-            //    $table->decimal("receive_from");
-            //    $table->date("date");
+               $table->decimal("receive_from");
+               $table->date("date");
         });
     }
 
