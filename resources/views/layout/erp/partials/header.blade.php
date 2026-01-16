@@ -1,638 +1,1110 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- dir="rtl"-->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <!-- Required meta tags  -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dolab : Dolab Personal Banking Admin Bootstrap 5 Template">
+    <meta property="og:title" content="Dolab : Dolab Personal Banking Admin Bootstrap 5 Template">
+    <meta property="og:description" content="Dolab : Dolab Personal Banking Admin Bootstrap 5 Template">
+    <meta property="og:image" content="../dolab.dexignzone.com/xhtml/social-image.png">
+    <meta name="format-detection" content="telephone=no">
 
-    <title>Investment AdminUIUX - Bootstrap HTML Admin template - adminuiux.com</title>
-    <link rel="icon" type="image/png" href="{{ asset('assets') }}/img/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    {{-- <link rel="stylesheet" href="{{asset("assets")}}/cdnjs.cloudflare.com/ajax/libs/hightlight.js/11.9.0/highlight.min.js"> --}}
+    <!-- PAGE TITLE HERE -->
+    <title>S-Bank Personal Banking Admin</title>
 
-
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets') }}/images/favicon.png">
+    <link href="{{ asset('assets') }}/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"
         rel="stylesheet">
-    <style>
-        :root {
-            --adminuiux-content-font: "Open Sans", sans-serif;
-            --adminuiux-content-font-weight: 400;
-            --adminuiux-title-font: "Lexend", sans-serif;
-            --adminuiux-title-font-weight: 600;
-        }
-    </style>
+    <link href="{{ asset('assets') }}/vendor/jquery-autocomplete/jquery-ui.css" rel="stylesheet">
 
-    <script defer src="{{ asset('assets') }}/js/app435e.js?1096aad991449c8654b2"></script>
-    <link href="{{ asset('assets') }}/css/app435e.css?1096aad991449c8654b2" rel="stylesheet">
+    <!-- Style css -->
+
+    <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet">
+
 </head>
 
-<body
-    class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed  theme-blue roundedui"
-    data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll"
-    data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
-    <!-- Pageloader -->
-    <div class="pageloader">
-        <div class="container h-100">
-            <div class="row justify-content-center align-items-center text-center h-100">
-                <div class="col-12 mb-auto pt-4"></div>
-                <div class="col-auto">
-                    <img src="{{ asset('assets') }}/img/logo.svg" alt="" class="height-60 mb-3">
-                    <p class="h6 mb-0">AdminUIUX</p>
-                    <p class="h3 mb-4">Investment</p>
-                    <div class="loader10 mb-2 mx-auto"></div>
-                </div>
-                <div class="col-12 mt-auto pb-4">
-                    <p class="text-secondary">Please wait we are preparing awesome things to preview...</p>
-                </div>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="inner">
+            <span>Loading </span>
+            <div class="loading">
             </div>
         </div>
     </div>
-    <!-- standard header -->
-    <header class="adminuiux-header">
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container-fluid">
+    <!--*******************
+        Preloader end
+    ********************-->
 
-                <!-- main sidebar toggle -->
-                <button class="btn btn-link btn-square sidebar-toggler" type="button" onclick="initSidebar()">
-                    <i class="sidebar-svg" data-feather="menu"></i>
-                </button>
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+        <div class="animation">
+            <span class="circle one"></span>
+            <span class="circle two"></span>
+            <span class="circle three"></span>
+            <span class="circle four"></span>
+            <span class="line-1 ">
+                <svg width="1920" height="450" viewBox="0 0 1920 450" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.3"
+                        d="M0 155L95.4613 293.923C106.459 309.928 131.116 305.943 136.512 287.289L209.86 33.7127C215.892 12.8576 244.803 11.2033 253.175 31.2341L344.838 250.546C352.224 268.217 376.708 269.648 386.102 252.958L519.839 15.3693C529.061 -1.01332 552.975 -0.0134089 560.797 17.0818L716.503 357.389C724.454 374.766 748.899 375.43 757.782 358.51L902.518 82.8223C911.524 65.6685 936.406 66.653 944.028 84.4648L1093.06 432.731C1101.14 451.601 1128.01 451.247 1135.58 432.172L1291.33 39.9854C1298.27 22.5135 1322.1 20.2931 1332.14 36.1824L1473.74 260.126C1482.47 273.922 1502.38 274.494 1511.88 261.221L1667.88 43.3025C1678.17 28.9257 1700.16 31.0533 1707.5 47.1365L1844.91 348.06C1853.69 367.287 1881.58 365.486 1887.81 345.29L1970 79"
+                        stroke="url(#paint0_linear_332_3757)" stroke-opacity="0.4" stroke-width="6"
+                        stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="paint0_linear_332_3757" x1="1946.24" y1="352.062" x2="-1.52124"
+                            y2="345.607" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#6E4AFF" />
+                            <stop offset="0.479167" stop-color="#E43BFF" />
+                            <stop offset="1" stop-color="#6E4AFF" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </span>
+            <span class="line-2">
+                <svg width="1920" height="459" viewBox="0 0 1920 459" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 89L103.191 296.201C112.034 313.958 137.703 312.941 145.114 294.54L224.847 96.5574C232.264 78.141 257.962 77.1423 266.786 94.9275L352.649 267.995C360.863 284.553 384.264 285.148 393.31 269.03L516.226 50.0159C525.164 34.0902 548.205 34.4325 556.666 50.6167L713.497 350.608C721.71 366.318 743.86 367.222 753.326 352.234L901.462 117.684C911.188 102.286 934.102 103.763 941.771 120.282L1091.14 442.062C1099.38 459.816 1124.62 459.817 1132.86 442.064L1303.17 75.2544C1310.64 59.1685 1332.73 57.2308 1342.89 71.7713L1469.94 253.703C1479.15 266.893 1498.71 266.794 1507.78 253.511L1671.82 13.4627C1681.74 -1.05968 1703.63 0.478486 1711.42 16.2459L1844.42 285.267C1853.64 303.905 1880.89 301.723 1887.02 281.857L1970 13"
+                        stroke="url(#paint0_linear_332_3758)" stroke-opacity="0.4" stroke-width="6"
+                        stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="paint0_linear_332_3758" x1="1946.24" y1="286.062" x2="-1.52105"
+                            y2="279.607" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#6E4AFF" />
+                            <stop offset="0.479167" stop-color="#E43BFF" />
+                            <stop offset="1" stop-color="#6E4AFF" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </span>
 
-                <!-- logo -->
-                <a class="navbar-brand" href="investment-dashboard.html">
-                    <img data-bs-img="light" src="{{ asset('assets') }}/img/logo-light.svg" alt="">
-                    <img data-bs-img="dark" src="{{ asset('assets') }}/img/logo.svg" alt="">
-                    <div class="">
-                        <span class="h4">Investment<b>UX</b></span>
-                        <p class="company-tagline">AdminUIUX HTML template</p>
-                    </div>
-                </a>
+        </div>
 
-                <!-- navigation inline -->
-                <div class="collapse navbar-collapse right-in-device justify-content-center" id="header-navbar">
-                    <ul class="navbar-nav mx-lg-3 mb-2 mb-md-0 ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment-dashboard.html">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment-portfolio.html">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment-transaction.html">Transaction</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment-blogs.html">News</a>
-                        </li>
-                    </ul>
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="{{ URL('/') }}" class="brand-logo">
+                <div class="logo">
+                    <svg class="logo-abbr" width="42" height="42" viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <defs>
+                            <!-- Gold gradient -->
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%"
+                                y2="0%">
+                                <stop offset="0%" stop-color="#B8962E" />
+                                <stop offset="50%" stop-color="#F5D47A" />
+                                <stop offset="100%" stop-color="#B8962E" />
+                            </linearGradient>
+
+                            <!-- Shine animation -->
+                            <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%"
+                                y2="0%">
+                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+                                <stop offset="50%" stop-color="#ffffff" stop-opacity="0.6" />
+                                <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                                <animate attributeName="x1" from="-100%" to="100%" dur="2.5s"
+                                    repeatCount="indefinite" />
+                                <animate attributeName="x2" from="0%" to="200%" dur="2.5s"
+                                    repeatCount="indefinite" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Dark base -->
+                        <rect x="6" y="6" width="88" height="88" rx="18" fill="#0B0F1A" />
+
+                        <!-- Gold S -->
+                        <text x="50" y="66" text-anchor="middle" font-size="54" font-weight="700"
+                            font-family="Inter, Poppins, Arial, sans-serif" fill="url(#goldGrad)">
+                            S
+                        </text>
+
+                        <!-- Shine overlay -->
+                        <rect x="6" y="6" width="88" height="88" rx="18" fill="url(#shineGrad)" />
+                    </svg>
+
+
+
+
+                    <svg class="brand-title" width="170" height="36" viewBox="0 0 340 60"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldText" x1="0%" y1="0%" x2="100%"
+                                y2="0%">
+                                <stop offset="0%" stop-color="#F5D47A" />
+                                <stop offset="50%" stop-color="#D4AF37" />
+                                <stop offset="100%" stop-color="#B8962E" />
+                            </linearGradient>
+                        </defs>
+
+                        <text x="0" y="42" font-size="40" font-weight="600" letter-spacing="2"
+                            font-family="Inter, Poppins, Arial, sans-serif" fill="url(#goldText)">
+                            BANK
+                        </text>
+                    </svg>
+
+
+
+
                 </div>
 
-                <!-- right icons button -->
-                <div class="ms-auto">
-                    <!-- global search toggle -->
-                    <button class="btn btn-link btn-square btn-icon btn-link-header" type="button"
-                        onclick="openSearch()">
-                        <i data-feather="search"></i>
-                    </button>
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4"
+                            d="M16.7548 0.333313H20.7051C22.341 0.333313 23.6667 1.67014 23.6667 3.31994V7.30359C23.6667 8.95339 22.341 10.2902 20.7051 10.2902H16.7548C15.1188 10.2902 13.7932 8.95339 13.7932 7.30359V3.31994C13.7932 1.67014 15.1188 0.333313 16.7548 0.333313Z"
+                            fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3.29492 0.333313H7.24522C8.8812 0.333313 10.2068 1.67014 10.2068 3.31994V7.30359C10.2068 8.95339 8.8812 10.2902 7.24522 10.2902H3.29492C1.65894 10.2902 0.333313 8.95339 0.333313 7.30359V3.31994C0.333313 1.67014 1.65894 0.333313 3.29492 0.333313ZM3.29492 13.7097H7.24522C8.8812 13.7097 10.2068 15.0466 10.2068 16.6964V20.68C10.2068 22.3287 8.8812 23.6666 7.24522 23.6666H3.29492C1.65894 23.6666 0.333313 22.3287 0.333313 20.68V16.6964C0.333313 15.0466 1.65894 13.7097 3.29492 13.7097ZM20.705 13.7097H16.7547C15.1188 13.7097 13.7931 15.0466 13.7931 16.6964V20.68C13.7931 22.3287 15.1188 23.6666 16.7547 23.6666H20.705C22.341 23.6666 23.6666 22.3287 23.6666 20.68V16.6964C23.6666 15.0466 22.341 13.7097 20.705 13.7097Z"
+                            fill="white" />
+                    </svg>
 
-                    <!-- dark mode -->
-                    <button class="btn btn-link btn-square btnsunmoon btn-link-header" id="btn-layout-modes-dark-page">
-                        <i class="sun mx-auto" data-feather="sun"></i>
-                        <i class="moon mx-auto" data-feather="moon"></i>
-                    </button>
-
-                    <!-- application list dropdown -->
-                    <div class="dropdown d-none d-sm-inline-block">
-                        <button class="btn btn-link btn-square btn-icon btn-link-header dropdown-toggle no-caret"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i data-feather="grid"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end width-300 pt-0 px-0">
-                            <div class="bg-theme-1-space rounded py-3 mb-2 dropdown-dontclose text-center">
-                                <p class="mb-0">Applications</p>
-                                <p class="opacity-50 small">Make your app innovative</p>
-                            </div>
-                            <div class="px-2">
-                                <div class="row g-0 text-center mb-2">
-                                    <div class="col-4">
-                                        <a class="dropdown-item square-item" href="app-finance.html">
-                                            <div class="avatar avatar-40 rounded mb-2">
-                                                <i class="bi bi-bank fs-4 mx-0"></i>
-                                            </div>
-                                            <p class="mb-0">Finance</p>
-                                            <p class="fs-12 opacity-50 mb-2">Accounting</p>
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a class="dropdown-item square-item" href="app-network.html">
-                                            <div class="avatar avatar-40 rounded mb-2">
-                                                <i class="bi bi-globe fs-4 mx-0"></i>
-                                            </div>
-                                            <p class="mb-0">Network</p>
-                                            <p class="fs-12 opacity-50 mb-2">Stabilize</p>
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a class="dropdown-item square-item" href="app-ecommerce.html">
-                                            <div class="avatar avatar-40 rounded mb-2">
-                                                <i class="bi bi-box fs-4 mx-0"></i>
-                                            </div>
-                                            <p class="mb-0">Inventory</p>
-                                            <p class="fs-12 opacity-50 mb-2">Assuring</p>
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a class="dropdown-item square-item" href="app-project.html">
-                                            <div class="avatar avatar-40 rounded mb-2">
-                                                <i class="bi bi-folder fs-4 mx-0"></i>
-                                            </div>
-                                            <p class="mb-0">Project</p>
-                                            <p class="fs-12 opacity-50 mb-2">Management</p>
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a class="dropdown-item square-item" href="app-social.html">
-                                            <div class="avatar avatar-40 rounded mb-2">
-                                                <i class="bi bi-people fs-4 mx-0"></i>
-                                            </div>
-                                            <p class="mb-0">Social</p>
-                                            <p class="fs-12 opacity-50 mb-2">Tracking</p>
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a class="dropdown-item square-item" href="app-learning.html">
-                                            <div class="avatar avatar-40 rounded mb-2">
-                                                <i class="bi bi-journal-bookmark fs-4 mx-0"></i>
-                                            </div>
-                                            <p class="mb-0">Learning</p>
-                                            <p class="fs-12 opacity-50 mb-2">Make-easy</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <a class="btn btn-link text-center" href="app-demo.html">View all
-                                    <i class="bi bi-arrow-right fs-14"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- language dropdown -->
-                    <div class="dropdown d-none d-sm-inline-block">
-                        <button class="btn btn-link btn-square btn-icon btn-link-header dropdown-toggle no-caret"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                class="bi bi-translate"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item active" data-value="EN">EN - English</a></li>
-                            <li><a class="dropdown-item" data-value="FR">FR - French</a></li>
-                            <li><a class="dropdown-item" data-value="CH">CH - Chinese</a></li>
-                            <li><a class="dropdown-item" data-value="HI">HI - Hindi</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- notification dropdown -->
-                    <div class="dropdown d-inline-block">
-                        <button class="btn btn-link btn-square btn-icon btn-link-header dropdown-toggle no-caret"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i data-feather="bell"></i>
-                            <span class="position-absolute top-0 end-0 badge rounded-pill bg-danger p-1">
-                                <small>9+</small>
-                                <span class="visually-hidden">unread messages</span>
-                            </span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end notification-dd sm-mi-95px">
-                            <li>
-                                <a class="dropdown-item p-2" href="#">
-                                    <div class="row gx-3">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-40 rounded-circle bg-pink">
-                                                <i class="bi bi-gift text-white"></i>
-                                            </figure>
-                                        </div>
-                                        <div class="col">
-                                            <p class="mb-2 small">Congratulation! Your property <span
-                                                    class="fw-bold">#H10215</span> has reached 1000 views.</p>
-                                            <span class="row">
-                                                <span class="col"><span
-                                                        class="badge badge-light rounded-pill text-bg-warning small">Directory</span></span>
-                                                <span class="col-auto small opacity-75">1:00 am</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item p-2" href="#">
-                                    <div class="row gx-3">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-40 rounded-circle bg-success">
-                                                <i class="bi bi-patch-check text-white"></i>
-                                            </figure>
-                                        </div>
-                                        <div class="col">
-                                            <p class="mb-2 small">Your property <span class="fw-bold">#H10215</span>
-                                                is published and live now.</p>
-                                            <span class="row">
-                                                <span class="col"><span
-                                                        class="badge badge-light rounded-pill text-bg-primary small">System</span></span>
-                                                <span class="col-auto small opacity-75">1:00 am</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item p-2" href="#">
-                                    <div class="row gx-3">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-40 rounded-circle bg-info">
-                                                <i class="bi bi-clipboard-check text-white"></i>
-                                            </figure>
-                                        </div>
-                                        <div class="col">
-                                            <p class="mb-2 small">User <span class="fw-bold">Rahana</span> has updated
-                                                <span class="fw-bold">#H10215</span> property.</p>
-                                            <span class="row">
-                                                <span class="col"><span
-                                                        class="badge badge-light rounded-pill text-bg-success small">team</span></span>
-                                                <span class="col-auto small opacity-75">1:00 am</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="dropdown-item p-2">
-                                    <div class="row gx-3">
-                                        <div class="col-auto">
-                                            <figure class="avatar avatar-40 rounded-circle bg-warning ">
-                                                <i class="bi bi-bell text-white"></i>
-                                            </figure>
-                                        </div>
-                                        <div class="col">
-                                            <p class="mb-2 small">Your subscription going to expire soon. Please <a
-                                                    href="profile-subscription.html">upgrade</a> to get service
-                                                interrupt free.</p>
-                                            <p class="opacity-75 small">4 days ago</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="text-center">
-                                <button class="btn btn-link text-center" onclick="notifcationAll()">
-                                    View all <i class="bi bi-arrow-right fs-14"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- profile dropdown -->
-                    <div class="dropdown d-inline-block">
-                        <a class="dropdown-toggle btn btn-link btn-square btn-link-header style-none no-caret px-0"
-                            id="userprofiledd" data-bs-toggle="dropdown" aria-expanded="false" role="button">
-                            <div class="row gx-0 d-inline-flex">
-                                <div class="col-auto align-self-center">
-                                    <figure class="avatar avatar-28 rounded-circle coverimg align-middle">
-                                        <img src="{{ asset('assets') }}/img/modern-ai-image/user-6.jpg" alt=""
-                                            id="userphotoonboarding2">
-                                    </figure>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end width-300 pt-0 px-0 sm-mi-45px"
-                            aria-labelledby="userprofiledd">
-                            <div class="bg-theme-1-space rounded py-3 mb-3 dropdown-dontclose">
-                                <div class="row gx-0">
-                                    <div class="col-auto px-3">
-                                        <figure class="avatar avatar-50 rounded-circle coverimg align-middle">
-                                            <img src="{{ asset('assets') }}/img/modern-ai-image/user-6.jpg"
-                                                alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="col align-self-center ">
-                                        <p class="mb-1"><span>AdminUIUX</span></p>
-                                        <p><i class="bi bi-wallet2 me-2"></i> $1100.00 <small
-                                                class="opacity-50">Balance</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-2">
-                                <div><a class="dropdown-item" href="investment-myprofile.html"><i data-feather="user"
-                                            class="avatar avatar-18 me-1"></i> My
-                                        Profile</a>
-                                </div>
-                                <div>
-                                    <a class="dropdown-item" href="investment-dashboard.html">
-                                        <div class="row g-0">
-                                            <div class="col align-self-center"><i data-feather="layout"
-                                                    class="avatar avatar-18 me-1"></i>
-                                                My Dashboard
-                                            </div>
-                                            <div class="col-auto">
-                                                <figure class="avatar avatar-20 coverimg rounded-circle">
-                                                    <img src="{{ asset('assets') }}/img/modern-ai-image/user-1.jpg"
-                                                        alt="">
-                                                </figure>
-                                                <figure class="avatar avatar-20 coverimg rounded-circle">
-                                                    <img src="{{ asset('assets') }}/img/modern-ai-image/user-2.jpg"
-                                                        alt="">
-                                                </figure>
-                                                <figure class="avatar avatar-20 coverimg rounded-circle">
-                                                    <img src="{{ asset('assets') }}/img/modern-ai-image/user-4.jpg"
-                                                        alt="">
-                                                </figure>
-                                                <div
-                                                    class="avatar avatar-20 bg-theme-1 rounded-circle text-center align-middle">
-                                                    <small class="fs-10 align-middle">9+</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="dropdown-item" href="investment-earning.html">
-                                        <i data-feather="dollar-sign" class="avatar avatar-18 me-1"></i> Earning
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="dropdown-item" href="investment-mysubscription.html">
-                                        <div class="row">
-                                            <div class="col"><i data-feather="gift"
-                                                    class="avatar avatar-18 me-1"></i> Subscription</div>
-                                            <div class="col-auto">
-                                                <p class="small text-success">Upgrade</p>
-                                            </div>
-                                            <div class="col-auto"><span class="arrow bi bi-chevron-right"></span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown open-left dropdown-dontclose">
-                                    <a class="dropdown-item" data-bs-toggle="dropdown" aria-expanded="false"
-                                        role="button">
-                                        <div class="row">
-                                            <div class="col"><i class="bi bi-translate avatar avatar-18 me-1"></i>
-                                                Language</div>
-                                            <div class="col-auto"><small class="vm">EN - English</small> <i
-                                                    class="bi bi-translate"></i></div>
-                                            <div class="col-auto"><span class="arrow bi bi-chevron-right"></span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <div><a class="dropdown-item active" data-value="EN">EN - English</a></div>
-                                        <div><a class="dropdown-item" data-value="FR">FR - French</a></div>
-                                        <div><a class="dropdown-item" data-value="CH">CH - Chinese</a></div>
-                                        <div><a class="dropdown-item" data-value="HI">HI - Hindi</a></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <a class="dropdown-item" href="investment-settings.html">
-                                        <i data-feather="settings" class="avatar avatar-18 me-1"></i> Account Setting
-                                    </a>
-                                </div>
-                                <div>
-                                    <a class="dropdown-item theme-red" href="{{URL("/logout")}}">
-                                        <i data-feather="power" class="avatar avatar-18 me-1"></i> Logout
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- navigation inline toggler for small screen-->
-                    <button class="navbar-toggler btn btn-link btn-link-header btn-square btn-icon collapsed"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar"
-                        aria-controls="header-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <i data-feather="more-vertical" class="openbtn"></i>
-                        <i data-feather="x" class="closebtn"></i>
-                    </button>
                 </div>
             </div>
-        </nav>
 
-        <!-- search global wrap -->
-        <div class="adminuiux-search-full">
-            <div class="row gx-2 align-items-center">
-                <div class="col-auto">
-                    <!-- close global search toggle -->
-                    <button class="btn btn-link btn-square " type="button" onclick="closeSearch()">
-                        <i data-feather="arrow-left"></i>
-                    </button>
-                </div>
-                <div class="col">
-                    <input class="form-control pe-0 border-0" type="search" placeholder="Type something here...">
-                </div>
-                <div class="col-auto">
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
 
-                    <!-- filter dropdown -->
-                    <div class="dropdown input-group-text border-0 p-0">
-                        <button class="dropdown-toggle btn btn-link btn-square no-caret" type="button"
-                            id="searchfilter2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i data-feather="sliders"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-dontclose width-300">
-                            <ul class="nav adminuiux-nav" id="searchtab2" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="searchall-tab2" data-bs-toggle="tab"
-                                        data-bs-target="#searchall2" type="button" role="tab"
-                                        aria-controls="searchall2" aria-selected="true">All</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="searchorders-tab2" data-bs-toggle="tab"
-                                        data-bs-target="#searchorders2" type="button" role="tab"
-                                        aria-controls="searchorders2" aria-selected="false"
-                                        tabindex="-1">Orders</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="searchcontacts-tab2" data-bs-toggle="tab"
-                                        data-bs-target="#searchcontacts2" type="button" role="tab"
-                                        aria-controls="searchcontacts2" aria-selected="false"
-                                        tabindex="-1">Contacts</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content py-3" id="searchtabContent">
-                                <div class="tab-pane fade active show" id="searchall2" role="tabpanel"
-                                    aria-labelledby="searchall-tab2">
-                                    <ul class="list-group adminuiux-list-group list-group-flush bg-none show">
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Search apps</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch1">
-                                                        <label class="form-check-label" for="searchswitch1"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Include Pages</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch2" checked="">
-                                                        <label class="form-check-label" for="searchswitch2"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Internet resource</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch3" checked="">
-                                                        <label class="form-check-label" for="searchswitch3"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">News and Blogs</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch4">
-                                                        <label class="form-check-label" for="searchswitch4"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+        <!--**********************************
+            Chat box start
+        ***********************************-->
+        <div class="chatbox">
+            <div class="chatbox-close"></div>
+            <div class="custom-tab-1">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#notes">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#alerts">Alerts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#chat">Chat</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="chat" role="tabpanel">
+                        <div class="card mb-sm-3 mb-md-0 contacts_card dz-chat-user-box">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="#" class="add" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect fill="#ffffff" x="4" y="11" width="16" height="2"
+                                                rx="1" />
+                                            <rect fill="#ffffff" opacity="0.3"
+                                                transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) "
+                                                x="4" y="11" width="16" height="2" rx="1" />
+                                        </g>
+                                    </svg>
+                                </a>
+                                <div>
+                                    <h6 class="mb-1">Chat List</h6>
+                                    <p class="mb-0">Show All</p>
                                 </div>
-                                <div class="tab-pane fade" id="searchorders2" role="tabpanel"
-                                    aria-labelledby="searchorders-tab2">
-                                    <ul class="list-group adminuiux-list-group list-group-flush bg-none show">
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Show order ID</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch5">
-                                                        <label class="form-check-label" for="searchswitch5"></label>
-                                                    </div>
-                                                </div>
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+                                        viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <circle fill="#ffffff" cx="5" cy="12" r="2" />
+                                            <circle fill="#ffffff" cx="12" cy="12" r="2" />
+                                            <circle fill="#ffffff" cx="19" cy="12" r="2" />
+                                        </g>
+                                    </svg></a>
+                            </div>
+                            <div class="card-body contacts_body p-0 dz-scroll  " id="DLAB_W_Contacts_Body">
+                                <ul class="contacts">
+                                    <li class="name-first-letter">A</li>
+                                    <li class="active dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
                                             </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">International Order</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch6" checked="">
-                                                        <label class="form-check-label" for="searchswitch6"></label>
-                                                    </div>
-                                                </div>
+                                            <div class="user_info">
+                                                <span>Archie Parker</span>
+                                                <p>Kalid is online</p>
                                             </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Taxable Product</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch7" checked="">
-                                                        <label class="form-check-label" for="searchswitch7"></label>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
                                             </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Published Product</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch8">
-                                                        <label class="form-check-label" for="searchswitch8"></label>
-                                                    </div>
-                                                </div>
+                                            <div class="user_info">
+                                                <span>Alfie Mason</span>
+                                                <p>Taherah left 7 mins ago</p>
                                             </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/3.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>AharlieKane</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/4.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Athan Jacoby</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">B</li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/5.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Bashid Samim</span>
+                                                <p>Rashid left 50 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Breddie Ronan</span>
+                                                <p>Kalid is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Ceorge Carson</span>
+                                                <p>Taherah left 7 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">D</li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/3.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Darry Parker</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/4.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Denry Hunter</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">J</li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/5.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Jack Ronan</span>
+                                                <p>Rashid left 50 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Jacob Tucker</span>
+                                                <p>Kalid is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>James Logan</span>
+                                                <p>Taherah left 7 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/3.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Joshua Weston</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">O</li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/4.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Oliver Acker</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dz-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="{{ asset('assets') }}/images/avatar/5.jpg"
+                                                    class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Oscar Weston</span>
+                                                <p>Rashid left 50 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card chat dz-chat-history-box d-none">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="javascript:void(0);" class="dz-chat-history-back">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <polygon points="0 0 24 0 24 24 0 24" />
+                                            <rect fill="#ffffff" opacity="0.3"
+                                                transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
+                                                x="14" y="7" width="2" height="10" rx="1" />
+                                            <path
+                                                d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+                                                fill="#ffffff" fill-rule="nonzero"
+                                                transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
+                                        </g>
+                                    </svg>
+                                </a>
+                                <div>
+                                    <h6 class="mb-1">Chat with Khelesh</h6>
+                                    <p class="mb-0 text-success">Online</p>
                                 </div>
-                                <div class="tab-pane fade" id="searchcontacts2" role="tabpanel"
-                                    aria-labelledby="searchcontacts-tab2">
-                                    <ul class="list-group adminuiux-list-group list-group-flush bg-none show">
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Have email ID</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch9">
-                                                        <label class="form-check-label" for="searchswitch9"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Have phone number</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch10" checked="">
-                                                        <label class="form-check-label" for="searchswitch10"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Photo available</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch11" checked="">
-                                                        <label class="form-check-label" for="searchswitch11"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">Referral</div>
-                                                <div class="col-auto">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            role="switch" id="searchswitch12">
-                                                        <label class="form-check-label" for="searchswitch12"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="dropdown">
+                                    <a href="javascript:void(0);" data-bs-toggle="dropdown"
+                                        aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+                                            viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <circle fill="#ffffff" cx="5" cy="12" r="2" />
+                                                <circle fill="#ffffff" cx="12" cy="12" r="2" />
+                                                <circle fill="#ffffff" cx="19" cy="12" r="2" />
+                                            </g>
+                                        </svg></a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li class="dropdown-item"><i class="fa fa-user-circle text-primary me-2"></i>
+                                            View profile</li>
+                                        <li class="dropdown-item"><i class="fa fa-users text-primary me-2"></i> Add to
+                                            btn-close friends</li>
+                                        <li class="dropdown-item"><i class="fa fa-plus text-primary me-2"></i> Add to
+                                            group</li>
+                                        <li class="dropdown-item"><i class="fa fa-ban text-primary me-2"></i> Block
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="">
-                                <div class="row">
-                                    <div class="col"><button class="btn btn-link">Reset</button></div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-theme">Apply</button>
+                            <div class="card-body msg_card_body dz-scroll" id="DLAB_W_Contacts_Body3">
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Hi, how are you samim?
+                                        <span class="msg_time">8:40 AM, Today</span>
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Hi Khalid i am good tnx how about you?
+                                        <span class="msg_time_send">8:55 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am good too, thank you for your chat template
+                                        <span class="msg_time">9:00 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        You are welcome
+                                        <span class="msg_time_send">9:05 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am looking for your next templates
+                                        <span class="msg_time">9:07 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Ok, thank you have a good day
+                                        <span class="msg_time_send">9:10 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Bye, see you
+                                        <span class="msg_time">9:12 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Hi, how are you samim?
+                                        <span class="msg_time">8:40 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Hi Khalid i am good tnx how about you?
+                                        <span class="msg_time_send">8:55 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am good too, thank you for your chat template
+                                        <span class="msg_time">9:00 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        You are welcome
+                                        <span class="msg_time_send">9:05 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am looking for your next templates
+                                        <span class="msg_time">9:07 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Ok, thank you have a good day
+                                        <span class="msg_time_send">9:10 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/2.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="{{ asset('assets') }}/images/avatar/1.jpg"
+                                            class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Bye, see you
+                                        <span class="msg_time">9:12 AM, Today</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer type_msg">
+                                <div class="input-group">
+                                    <textarea class="form-control" placeholder="Type your message..."></textarea>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-primary"><i
+                                                class="fa fa-location-arrow"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="alerts" role="tabpanel">
+                        <div class="card mb-sm-3 mb-md-0 contacts_card">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+                                        viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <circle fill="#000000" cx="5" cy="12" r="2" />
+                                            <circle fill="#000000" cx="12" cy="12" r="2" />
+                                            <circle fill="#000000" cx="19" cy="12" r="2" />
+                                        </g>
+                                    </svg></a>
+                                <div>
+                                    <h6 class="mb-1">Notications</h6>
+                                    <p class="mb-0">Show All</p>
+                                </div>
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+                                        viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <path
+                                                d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
+                                                fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                            <path
+                                                d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
+                                                fill="#000000" fill-rule="nonzero" />
+                                        </g>
+                                    </svg></a>
+                            </div>
+                            <div class="card-body contacts_body p-0 dz-scroll" id="DLAB_W_Contacts_Body1">
+                                <ul class="contacts">
+                                    <li class="name-first-letter">SEVER STATUS</li>
+                                    <li class="active">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont primary">KK</div>
+                                            <div class="user_info">
+                                                <span>David Nester Birthday</span>
+                                                <p class="text-primary">Today</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">SOCIAL</li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont success">RU</div>
+                                            <div class="user_info">
+                                                <span>Perfection Simplified</span>
+                                                <p>Jame Smith commented on your status</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">SEVER STATUS</li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont primary">AU</div>
+                                            <div class="user_info">
+                                                <span>AharlieKane</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont info">MO</div>
+                                            <div class="user_info">
+                                                <span>Athan Jacoby</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notes">
+                        <div class="card mb-sm-3 mb-md-0 note_card">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="#" class="add" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect fill="#ffffff" x="4" y="11" width="16" height="2"
+                                                rx="1" />
+                                            <rect fill="#ffffff" opacity="0.3"
+                                                transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) "
+                                                x="4" y="11" width="16" height="2" rx="1" />
+                                        </g>
+                                    </svg>
+                                </a>
+                                <div>
+                                    <h6 class="mb-1">Notes</h6>
+                                    <p class="mb-0">Add New Nots</p>
+                                </div>
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+                                        viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <path
+                                                d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
+                                                fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                            <path
+                                                d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
+                                                fill="#000000" fill-rule="nonzero" />
+                                        </g>
+                                    </svg></a>
+                            </div>
+                            <div class="card-body contacts_body p-0 dz-scroll" id="DLAB_W_Contacts_Body2">
+                                <ul class="contacts">
+                                    <li class="active">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>New order placed..</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                        class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>Youtube, a video-sharing website..</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                        class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>john just buy your product..</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                        class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>Athan Jacoby</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                        class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Dashboard
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item d-flex align-items-start">
+                                <div class="input-group search-area">
+                                    <input type="text" class="form-control" id="search"
+                                        placeholder="Search here...">
+                                    <span class="input-group-text"><a href="javascript:void(0)"><svg width="28"
+                                                height="28" viewBox="0 0 28 28" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="1"
+                                                    d="M16.6751 19.4916C16.2194 19.036 16.2194 18.2973 16.6751 17.8417C17.1307 17.3861 17.8694 17.3861 18.325 17.8417L22.9916 22.5084C23.4473 22.964 23.4473 23.7027 22.9916 24.1583C22.536 24.6139 21.7973 24.6139 21.3417 24.1583L16.6751 19.4916Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M12.8333 18.6667C16.055 18.6667 18.6667 16.055 18.6667 12.8334C18.6667 9.61169 16.055 7.00002 12.8333 7.00002C9.61166 7.00002 6.99999 9.61169 6.99999 12.8334C6.99999 16.055 9.61166 18.6667 12.8333 18.6667ZM12.8333 21C8.323 21 4.66666 17.3437 4.66666 12.8334C4.66666 8.32303 8.323 4.66669 12.8333 4.66669C17.3436 4.66669 21 8.32303 21 12.8334C21 17.3437 17.3436 21 12.8333 21Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </a></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="dropdown header-profile2 ">
+                            <ul class="navbar-nav header-right me-sm-4">
+                                <li class="nav-item dropdown notification_dropdown">
+                                    <a class="nav-link" href="javascript:void(0);" role="button"
+                                        data-bs-toggle="dropdown">
+                                        <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.8333 11H17.5833C18.5498 11 19.3333 11.7835 19.3333 12.75C19.3333 13.7165 18.5498 14.5 17.5833 14.5H2.41666C1.45016 14.5 0.666656 13.7165 0.666656 12.75C0.666656 11.7835 1.45016 11 2.41666 11H4.16666L4.81798 5.13812C5.11136 2.49763 7.34325 0.5 9.99999 0.5C12.6567 0.5 14.8886 2.49763 15.182 5.13812L15.8333 11Z"
+                                                fill="#B9A8FF" />
+                                            <path opacity="0.3"
+                                                d="M12.3333 18C12.3333 16.7114 11.2887 15.6667 9.99999 15.6667C8.71133 15.6667 7.66666 16.7114 7.66666 18C7.66666 19.2887 8.71133 20.3334 9.99999 20.3334C11.2887 20.3334 12.3333 19.2887 12.3333 18Z"
+                                                fill="#B9A8FF" />
+                                        </svg>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <div id="DZ_W_Notification1" class="widget-media dz-scroll p-3"
+                                            style="height:380px;">
+                                            <ul class="timeline">
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50"
+                                                                src="{{ asset('assets') }}/images/avatar/1.jpg">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1"><a href="javascript:voiud(0)"> Dr
+                                                                    sultads Send you Photo</a></h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-info">
+                                                            KG
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1"><a href="javascript:voiud(0)">Resport
+                                                                    created successfully</a></h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-success">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1"><a href="javascript:voiud(0)">Reminder
+                                                                    : Treatment Time!</a></h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50"
+                                                                src="{{ asset('assets') }}/images/avatar/1.jpg">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1"><a href="javascript:voiud(0)">Dr
+                                                                    sultads Send you Photo</a></h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-danger">
+                                                            KG
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1"><a href="javascript:voiud(0)"> Resport
+                                                                    created successfully </a></h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-primary">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1"><a href="javascript:voiud(0)"> Reminder
+                                                                    : Treatment Time! </a></h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a class="all-notification" href="javascript:void(0);">See all notifications
+                                            <i class="ti-arrow-end"></i></a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown notification_dropdown">
+                                    <a class="nav-link bell-link " href="javascript:void(0);">
+                                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M7.00001 2.33331H21C21.6443 2.33331 22.1667 2.85565 22.1667 3.49998V15.1666C22.1667 15.811 21.6443 16.3333 21 16.3333H7.00001C6.35568 16.3333 5.83334 15.811 5.83334 15.1666V3.49998C5.83334 2.85565 6.35568 2.33331 7.00001 2.33331ZM16.1 4.66665C15.3489 4.66665 14.4705 5.51814 14 6.06665C13.5295 5.51814 12.6511 4.66665 11.9 4.66665C10.5705 4.66665 9.80001 5.70366 9.80001 7.0235C9.80001 8.4856 11.2 10.0333 14 11.6666C16.8 10.0333 18.2 8.51665 18.2 7.11665C18.2 5.79681 17.4295 4.66665 16.1 4.66665Z"
+                                                fill="#B9A8FF" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.42487 7.66798L14 14.5833L23.5751 7.66798C23.8363 7.47935 24.2009 7.53816 24.3896 7.79933C24.4614 7.89874 24.5 8.01825 24.5 8.14087V19.8333C24.5 21.122 23.4553 22.1667 22.1667 22.1667H5.83333C4.54467 22.1667 3.5 21.122 3.5 19.8333V8.14087C3.5 7.81871 3.76117 7.55754 4.08333 7.55754C4.20596 7.55754 4.32546 7.59618 4.42487 7.66798Z"
+                                                fill="#B9A8FF" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown notification_dropdown">
+                                    <a class="nav-link " href="javascript:void(0);" data-bs-toggle="dropdown">
+                                        <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M3.5 19.7699V10.8881H24.5V19.8411C24.5 23.5032 22.1948 25.7549 18.5066 25.7549H9.48189C5.82821 25.7549 3.5 23.4566 3.5 19.7699ZM9.28595 16.8999C8.75576 16.9244 8.31778 16.5032 8.29473 15.9677C8.29473 15.4311 8.70966 14.9877 9.23985 14.9632C9.75851 14.9632 10.185 15.3727 10.1965 15.8966C10.2195 16.4344 9.80461 16.8777 9.28595 16.8999ZM14.0231 16.8999C13.4929 16.9244 13.0549 16.5032 13.0318 15.9677C13.0318 15.4311 13.4468 14.9877 13.9769 14.9632C14.4956 14.9632 14.9221 15.3727 14.9336 15.8966C14.9566 16.4344 14.5417 16.8777 14.0231 16.8999ZM18.7256 21.1932C18.1954 21.1816 17.7689 20.7382 17.7689 20.2016C17.7574 19.6649 18.1839 19.2227 18.714 19.2111H18.7256C19.2673 19.2111 19.7053 19.6544 19.7053 20.2016C19.7053 20.7499 19.2673 21.1932 18.7256 21.1932ZM13.0318 20.2016C13.0549 20.7382 13.4929 21.1594 14.0231 21.1349C14.5417 21.1127 14.9566 20.6694 14.9336 20.1327C14.9221 19.6077 14.4956 19.1982 13.9769 19.1982C13.4468 19.2227 13.0318 19.6649 13.0318 20.2016ZM8.28321 20.2016C8.30626 20.7382 8.74424 21.1594 9.27442 21.1349C9.79308 21.1127 10.208 20.6694 10.185 20.1327C10.1734 19.6077 9.74698 19.1982 9.22832 19.1982C8.69813 19.2227 8.28321 19.6649 8.28321 20.2016ZM17.7805 15.9561C17.7805 15.4194 18.1954 14.9877 18.7256 14.9761C19.2442 14.9761 19.6592 15.3949 19.6822 15.9094C19.6937 16.4461 19.2788 16.8894 18.7602 16.8999C18.23 16.9116 17.792 16.5032 17.7805 15.9677V15.9561Z"
+                                                fill="#B9A8FF" />
+                                            <path opacity="0.4"
+                                                d="M3.50391 10.888C3.51889 10.2031 3.57652 8.84396 3.68486 8.40646C4.2381 5.94596 6.1168 4.38262 8.80232 4.15979H19.1986C21.861 4.39429 23.7628 5.96812 24.316 8.40646C24.4232 8.83229 24.4809 10.202 24.4958 10.888H3.50391Z"
+                                                fill="#B9A8FF" />
+                                            <path
+                                                d="M9.689 7.77657C10.1961 7.77657 10.5765 7.39274 10.5765 6.87824V3.32107C10.5765 2.80657 10.1961 2.42157 9.689 2.42157C9.18187 2.42157 8.80151 2.80657 8.80151 3.32107V6.87824C8.80151 7.39274 9.18187 7.77657 9.689 7.77657Z"
+                                                fill="#B9A8FF" />
+                                            <path
+                                                d="M18.3108 7.77657C18.8064 7.77657 19.1983 7.39274 19.1983 6.87824V3.32107C19.1983 2.80657 18.8064 2.42157 18.3108 2.42157C17.8036 2.42157 17.4233 2.80657 17.4233 3.32107V6.87824C17.4233 7.39274 17.8036 7.77657 18.3108 7.77657Z"
+                                                fill="#B9A8FF" />
+                                        </svg>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <div id="DZ_W_TimeLine02"
+                                            class="widget-timeline dz-scroll style-1 ps ps--active-y p-3 height370">
+                                            <ul class="timeline">
+                                                <li>
+                                                    <div class="timeline-badge primary"></div>
+                                                    <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>10 minutes ago</span>
+                                                        <h6 class="mb-0">Youtube, a video-sharing website, goes live
+                                                            <strong class="text-primary">$500</strong>.
+                                                        </h6>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-badge info">
+                                                    </div>
+                                                    <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>20 minutes ago</span>
+                                                        <h6 class="mb-0">New order placed <strong
+                                                                class="text-info">#XF-2356.</strong></h6>
+                                                        <p class="mb-0">Quisque a consequat ante Sit amet magna at
+                                                            volutapt...</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-badge danger">
+                                                    </div>
+                                                    <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>30 minutes ago</span>
+                                                        <h6 class="mb-0">john just buy your product <strong
+                                                                class="text-warning">Sell $250</strong></h6>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-badge success">
+                                                    </div>
+                                                    <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>15 minutes ago</span>
+                                                        <h6 class="mb-0">StumbleUpon is acquired by eBay. </h6>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-badge warning">
+                                                    </div>
+                                                    <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>20 minutes ago</span>
+                                                        <h6 class="mb-0">Mashable, a news website and blog, goes
+                                                            live.</h6>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-badge dark">
+                                                    </div>
+                                                    <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>20 minutes ago</span>
+                                                        <h6 class="mb-0">Mashable, a news website and blog, goes
+                                                            live.</h6>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a class="nav-link user-profile" href="javascript:void(0);" role="button"
+                                data-bs-toggle="dropdown">
+                                <div class="header-info2 d-flex align-items-center">
+                                    <img src="{{ asset('assets') }}/images/placeholder.jpg" alt="">
+                                    <div class="d-flex align-items-center sidebar-info">
+                                        <div class="user-info">
+                                            <span class="font-w500 d-block  fs-5 text-white">Adam Joe</span>
+                                            <small class="text-end font-w400">Admin</small>
+                                        </div>
+                                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.8334 1.08331L7.00002 6.91665L1.16669 1.08331" stroke="#FFFF"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                    </div>
+
+                                </div>
+                            </a>
+                            <div class="dropdown-menu profile dropdown-menu-end">
+                                <a href="app-profile.html" class="dropdown-item ai-icon ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <span class="ms-2">Profile </span>
+                                </a>
+                                <a href="email-inbox.html" class="dropdown-item ai-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    <span class="ms-2">Inbox </span>
+                                </a>
+                                <a href="page-login.html" class="dropdown-item ai-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                        <polyline points="16 17 21 12 16 7"></polyline>
+                                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                                    </svg>
+                                    <span class="ms-2">Logout </span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->

@@ -18,7 +18,7 @@
 
 
 <!-- theming action-->
-@include("layout.erp.partials.personalize")
+{{-- @include("layout.erp.partials.personalize") --}}
 
 
 <script src="{{ asset('assets/js/component/component-dataTable.js') }}"></script>
