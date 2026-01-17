@@ -11,23 +11,23 @@
 </style>
 @section("content")
 
-<div class="container mt-5 pt-3 ">
+<div class="container mt-5 pt-3 " style="min-height: 788px;">
     <div class="card shadow border-0 rounded-4 main-content">
 
         <!-- Header -->
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center rounded-top-4">
+        <div class="card-header  d-flex justify-content-between align-items-center rounded-top-4">
             <h5 class="mb-0">
                 <i class="bi bi-bank me-2"></i>Account Details List
             </h5>
-            <a class="btn btn-light btn-sm" href="{{Url('/account/create')}}">
+            <a class="btn btn-Primary btn-sm" href="{{Url('/account/create')}}">
                 <i class="bi bi-plus-circle"></i> Create Account
             </a>
         </div>
 
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-secondary">
+                <table class="table table-responsive-md">
+                    <thead>
                         <tr>
                             <th>#</th>
                             <th>Photo</th>

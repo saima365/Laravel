@@ -3,15 +3,8 @@
 		<!--**********************************
             Content body start
         ***********************************-->
-<style>
 
-.main-content {
-  margin-left: 250px;
-  margin-top: 56px;
-}
-
-</style>
-        <div class="content-body p-4 main-content">
+        <div class="content-body">
             <!-- row -->
 			<div class="container-fluid">
 				<div class="d-flex align-items-center mb-4 flex-wrap">
@@ -50,9 +43,9 @@
 					<div class="col-xl-12">
 						<div class="tab-content">
 							<!-- --tab-pane -->
-							<div class="tab-pane fade active show" id="all-transactions" role="tabpanel">
+							<div class="card-body" id="all-transactions" role="tabpanel">
 								<div class="table-responsive ">
-									<table class="table-responsive-lg table display mb-4 dataTablesCard order-table card-table text-black dataTable no-footer student-tbl" id="example5">
+									<table class="table table-responsive-md" id="example5">
 										<thead>
 											<tr>
 												<th>

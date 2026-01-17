@@ -40,7 +40,7 @@
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="{{URL("/account")}}">Accounts</a></li>
-							<li><a href="{{URL("")}}">Transactions</a></li>
+							<li><a href="{{URL("/transaction")}}">Transactions</a></li>
 							<li><a href="post-details.html">Savings</a></li>
 							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Deposit</a>
 								<ul aria-expanded="false">
