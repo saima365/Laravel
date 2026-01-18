@@ -11,7 +11,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        
+
         return view("pages.erp.transaction.index");
     }
 
@@ -20,7 +20,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        return view("pages.erp.transaction.create");
     }
 
     /**

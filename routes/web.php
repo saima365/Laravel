@@ -44,6 +44,7 @@ route::get("/customer/show",[CustomerController::class,"show"]);
 route::post("/customer/update/{id}",[CustomerController::class,"update"]);
 route::get("/wallet",[WalletController::class,"index"]);
 route::get("/transaction",[TransactionController::class,"index"]);
+route::get("/transaction/create",[TransactionController::class,"create"]);
 route::get("/account",[AccountController::class,"index"]);
 route::get("/account/create",[AccountController::class,"create"]);
 route::post("/account/save",[AccountController::class,"save"]);

@@ -34,14 +34,13 @@
                             <th>Account Number</th>
                             <th>Customer Name</th>
                             <th>Address</th>
-                            {{-- <th>Branch</th> --}}
                             <th>Account Type</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="text-align-center">
                         @foreach ( $accounts as $account )
                           <tr>
                             <td>{{$account->id}}</td>
@@ -52,8 +51,7 @@
                             </td>
                             <td>{{$account->account_number}}</td>
                             <td>{{$account->customer?->name}}</td>
-                            <td>{{$account->address}}</td>
-                            {{-- <td>{{$branch->name}}</td> --}}
+                            <td>{{$account->customer?->address}}</td>
                             <td>{{$account->account_type}}</td>
                             <td>
                                 <span class="badge bg-success">{{$account->status}}</span>

@@ -8,13 +8,13 @@
 </style>
 @section('content')
 
-    <div class="container ">
+    <div class="container-fluid ">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-10">
                 <div class="card shadow border-0 rounded-4 main-content ">
 
                     <!-- Header -->
-                    <div class="card-header bg-primary text-white rounded-top-4">
+                    <div class="card-header text-white rounded-top-4">
                         <h5 class="mb-0">
                             <i class="bi bi-bank me-2"></i>Create Bank Account
                         </h5>
@@ -139,8 +139,10 @@
                                     <div class="form-floating">
                                         <select value="{{old('branch_id')}}" class="form-select" name="branch_id">
                                             <option selected disabled>Select Branch</option>
-                                            <option value="1">Main Branch</option>
-                                            <option value="2">Uttara Branch</option>
+                                            <option value="Main Branch">Main Branch</option>
+                                            <option value="Uttara Branch">Uttara Branch</option>
+                                            <option value="Mirpur Branch">Mirpur Branch</option>
+                                            <option value="Dhanmondi Branch">Dhanmondi Branch</option>
                                         </select>
                                         <label>
                                             <i class="bi bi-geo-alt me-1"></i>Branch
@@ -155,9 +157,9 @@
                                     <div class="form-floating">
                                         <select value="{{old('account_type')}}" class="form-select" name="account_type">
                                             <option selected disabled>Select Account Type</option>
-                                            <option value="1">Savings</option>
-                                            <option value="2">Current</option>
-                                            <option value="3">Fixed Deposit</option>
+                                            <option value="Savings">Savings</option>
+                                            <option value="Current">Current</option>
+                                            <option value="Fixed Deposit">Fixed Deposit</option>
                                         </select>
                                         <label>
                                             <i class="bi bi-list-ul me-1"></i>Account Type
@@ -169,9 +171,9 @@
                                     <div class="form-floating">
                                         <select value="{{old('currency')}}" class="form-select" name="currency">
                                             <option selected disabled>Select Currency</option>
-                                            <option value="1">BDT</option>
-                                            <option value="2">USD</option>
-                                            <option value="3">EUR</option>
+                                            <option value="BDT">BDT</option>
+                                            <option value="USD">USD</option>
+                                            <option value="EUR">EUR</option>
                                         </select>
                                         <label>
                                             <i class="bi bi-currency-exchange me-1"></i>Currency
@@ -209,8 +211,8 @@
 
                                         <select value="{{old('role_id')}}" class="form-select" name="role_id">
                                             <option selected disabled>Select Role</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">Client</option>
+                                            <option value="Admin">Admin</option>
+                                            <option value="Client">Client</option>
 
                                         </select>
                                         <label>
