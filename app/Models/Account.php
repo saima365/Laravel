@@ -10,10 +10,10 @@ class Account extends Model
     {
         return $this->hasOne(Customer::class);
     }
-    //    public function branch()
-    // {
-    //     return $this->belongsTo(Branche::class);
-    // }
+       public function branch()
+    {
+        return $this->belongsTo(Branche::class);
+    }
 
 
 

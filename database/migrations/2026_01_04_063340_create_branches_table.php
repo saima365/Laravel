@@ -16,10 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('city');
-            $table->string('state');
-            $table->string('postal_code');
-            $table->string('contact_number');
-            $table->integer('user_id');
             $table->timestamps();
         });
     }

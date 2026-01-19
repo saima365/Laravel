@@ -23,13 +23,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-        // CustomerSeeder::class
+        CustomerSeeder::class
 
         ]);
 
         $this->call([
-        // RoleSeeder::class,
-        TransactionTypeSeeder::class
+
+        TransactionTypeSeeder::class,
+        BrancheSeeder::class
         ]);
 
 

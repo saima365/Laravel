@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
-
+use App\Models\Branche;
 use App\Models\Customer;
 
 use Illuminate\Http\Request;
@@ -27,7 +27,8 @@ class AccountController extends Controller
      */
     public function create()
     {
-       return view("pages.erp.account.create");
+        $branches=Branche::all();
+       return view("pages.erp.account.create",compact("branches"));
     }
 
     /**
@@ -50,7 +51,6 @@ class AccountController extends Controller
             "name.required"=>"please give a name",
             "address.required"=>"please give your address",
             "phone.required"=>"please Enter your phone number",
-            "img.required"=>"please select a photo",
             "date_of_birth.required"=>"please give your Birth date",
             "branch.required"=>"Branch Field Required",
             "account_type.required"=>"account type Field Required",
@@ -68,20 +68,19 @@ class AccountController extends Controller
             $request->file("img")->storeAs("img/customer", $imgname, "public");
         }
         $account= new Account();
-        $account->branch_id=$request->brunch_id;
+        $account->branch_id=$request->branch_id;
         $account->account_type=$request->account_type;
         $account->balance=$request->balance;
         $account->currency=$request->currency;
         $account->status=$request->status;
         $account->account_number=$request->account_number;
-        $account->branch_id= $request->branch_id;
         $account->save();
 
 
         // return    $account;
 
         $customer= new Customer();
-
+        $customer->img = $imgname;
         $customer->name= $request->name;
         $customer->email= $request->email;
         $customer->phone= $request->phone;
@@ -93,7 +92,7 @@ class AccountController extends Controller
         $customer->account_id= $account->id;
         $customer->save();
 
-        return redirect("account");
+         return redirect()->route('account.index')->with('success', 'Account saved!');
     }
 
     /**

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
-
+use App\Models\Branche;
+use App\Models\Customer;
 use App\Models\Transaction;
 use App\Models\Transaction_type;
 use Illuminate\Http\Request;
@@ -15,8 +16,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-
-        return view("pages.erp.transaction.index");
+        $transactions = Transaction::with(['account.branch', 'customer', 'transaction_type'])->get();
+        $customers=Customer::all();
+        $branches=Branche::all();
+        return view("pages.erp.transaction.index",compact("transactions","customers","branches"));
     }
 
     /**

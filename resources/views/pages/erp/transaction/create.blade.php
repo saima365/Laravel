@@ -69,7 +69,7 @@
                             <div class="mb-3">
                                 <label class="form-label"><strong>Date</strong></label>
                                 <input type="date" name="date" class="form-control"
-                                    value="{{ old('transaction_date', date('Y-m-d')) }}" required>
+                                    value="{{ old('date', date('Y-m-d')) }}" required>
                             </div>
 
 
