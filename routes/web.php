@@ -45,9 +45,11 @@ route::post("/customer/update/{id}",[CustomerController::class,"update"]);
 route::get("/wallet",[WalletController::class,"index"]);
 route::get("/transaction",[TransactionController::class,"index"]);
 route::get("/transaction/create",[TransactionController::class,"create"]);
+route::post("/transaction/save",[TransactionController::class,"save"]);
 route::get("/account",[AccountController::class,"index"]);
 route::get("/account/create",[AccountController::class,"create"]);
 route::post("/account/save",[AccountController::class,"save"]);
+route::get("/user_by_account_number/{account_id}",[TransactionController::class,"user_by_account_number"]);
 Route::get('/mail', function () {
     Mail::to("afrinakthertithebhuiyan@gmail.com")->send(new UserNotification);
     return "Mail sent successfully";

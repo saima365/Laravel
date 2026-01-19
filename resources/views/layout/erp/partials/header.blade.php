@@ -37,13 +37,13 @@
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="inner">
             <span>Loading </span>
             <div class="loading">
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--*******************
         Preloader end
     ********************-->

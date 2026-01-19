@@ -21,17 +21,17 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-       
+
         $this->call([
-        CustomerSeeder::class
+        // CustomerSeeder::class
 
         ]);
 
         $this->call([
-        RoleSeeder::class
-
+        // RoleSeeder::class,
+        TransactionTypeSeeder::class
         ]);
-       
-     
+
+
     }
 }

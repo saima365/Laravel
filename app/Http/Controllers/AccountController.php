@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
-use App\Models\Branche;
+
 use App\Models\Customer;
-use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -81,7 +81,7 @@ class AccountController extends Controller
         // return    $account;
 
         $customer= new Customer();
-        $customer->img=$imgname;
+
         $customer->name= $request->name;
         $customer->email= $request->email;
         $customer->phone= $request->phone;

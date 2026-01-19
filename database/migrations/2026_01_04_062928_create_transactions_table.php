@@ -16,9 +16,9 @@ return new class extends Migration
             $table->integer('account_id');
             $table->integer('transaction_type_id');
             $table->decimal('amount');
-            $table->decimal('balance_before')->nullable();
+            $table->decimal('balance_before');
             $table->decimal('balance_after');
-            $table->integer('transfer_to');
+            $table->integer('transfer_to')->nullable();
             $table->string('description');
             $table->timestamps();
         });

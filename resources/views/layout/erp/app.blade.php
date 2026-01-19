@@ -5,7 +5,7 @@
 
 @yield("content")
 
-
+@yield("js")
 @include("layout.erp.partials.footer")
 
 
