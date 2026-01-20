@@ -14,6 +14,7 @@ class Account extends Model
     {
         return $this->belongsTo(Branche::class);
     }
+   
 
 
 

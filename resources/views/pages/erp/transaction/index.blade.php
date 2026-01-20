@@ -215,7 +215,7 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="#">Cancel Transaction</a>
-                                                            <a class="dropdown-item" href="#">View Details</a>
+                                                            <a class="dropdown-item" href="{{ route('transaction.show', $transaction->id) }}">View Details</a>
                                                         </div>
                                                     </div>
                                                 </td>

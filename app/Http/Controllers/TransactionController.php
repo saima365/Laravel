@@ -85,10 +85,20 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show($id)
+{
+    $customer= Customer::find($id);
+
+    $lastTransaction = Transaction::orderBy('id', 'desc')->first();
+
+    $transactions = Transaction::with(['transaction_type','account'])
+        ->where("account_id","=", $customer->account_id)->get();
+        // return $transaction;
+
+    //    return  $transaction ;
+    return view('pages.erp.transaction.show', compact('transactions','customer'));
+}
+
 
     /**
      * Show the form for editing the specified resource.
@@ -109,7 +119,7 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($id)
     {
         //
     }
