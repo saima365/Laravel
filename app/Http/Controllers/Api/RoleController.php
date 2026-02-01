@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $customer= Customer::all();
-        return response()->json( $customer);
+        return response()->json(Role::all());
     }
 
     /**
