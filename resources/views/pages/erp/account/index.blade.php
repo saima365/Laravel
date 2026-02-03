@@ -23,7 +23,7 @@
                 <i class="bi bi-plus-circle"></i> Create Account
             </a>
         </div>
-
+         <input type="text" class="form-control w-25" id="search" placeholder="Search here..." >
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-responsive-md">

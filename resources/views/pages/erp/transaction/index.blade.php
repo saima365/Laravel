@@ -41,6 +41,7 @@
                 <div class="col-xl-12">
                     <div class="tab-content">
                         <!-- --tab-pane -->
+                         <input type="text" class="form-control w-25" id="search" placeholder="Search here..." >
                         <div class="card-body" id="all-transactions" role="tabpanel">
                             <div class="table-responsive ">
                                 <table class="table table-responsive-md" id="example5">

@@ -17,19 +17,37 @@ class CustomerController extends Controller
     function create(){
         return view("pages.erp.customer.create");
     }
-    function save(Request $request){
-        print_r($request->all());
-        $customer= new Customer();
-        $customer->name= $request->name;
-        $customer->email= $request->email;
-        $customer->phone= $request->phone;
-        $customer->address= $request->address;
-        $customer->gender= $request->gender;
-        $customer->date_of_birth= $request->date_of_birth;
-        $customer->status= $request->status;
-        $customer->save();
-        return redirect("customers");
+ function save(Request $request)
+{
+    // optional: validation
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'img' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+    ]);
+
+    $customer = new Customer();
+
+    if ($request->hasFile('img')) {
+        $image = $request->file('img');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('uploads/customers'), $imageName);
+        $customer->img = $imageName;
     }
+
+    $customer->name = $request->name;
+    $customer->email = $request->email;
+    $customer->phone = $request->phone;
+    $customer->address = $request->address;
+    $customer->gender = $request->gender;
+    $customer->date_of_birth = $request->date_of_birth;
+    $customer->status = $request->status;
+
+    $customer->save();
+
+    return redirect('customers');
+}
+
     function delete($id){
         $customer=Customer::find($id);
          $customer->delete();
