@@ -55,6 +55,7 @@ class CustomerController extends Controller
             // $customer->gender = $request->customer['gender'];
             // $customer->date_of_birth = $request->customer['date_of_birth'];
             // $customer->status = $request->customer['status'];
+
             $customer->name = $request->name;
             $customer->email = $request->email;
             $customer->phone = $request->phone;
@@ -75,7 +76,8 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        return response()->json(compact("customer"), 200);
     }
 
     /**
@@ -99,16 +101,12 @@ class CustomerController extends Controller
             return response()->json($th->getMessage(), 500);
         }
     }
-    function edit($id)
-    {
-        $customer = Customer::findOrFail($id);
-        return response()->json(compact("customer"), 200);
-    }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    function delete($id)
+    function destroy($id)
     {
         $customer = Customer::findOrFail($id);
         $customer->delete();
