@@ -85,20 +85,47 @@ class CustomerController extends Controller
      */
     function update(Request $request, $id)
     {
-        try {
+         try {
+
+
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'img' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gender' => 'required|in:Male,Female,Others',
+                'status' => 'required|in:Active,Inactive,Idle'
+
+            ]);
 
             $customer = Customer::findOrFail($id);
-            $customer->name = $request->customer['name'];
-            $customer->email = $request->customer['email'];
-            $customer->phone = $request->customer['phone'];
-            $customer->address = $request->customer['address'];
-            $customer->gender = $request->customer['gender'];
-            $customer->date_of_birth = $request->customer['date_of_birth'];
-            $customer->status = $request->customer['status'];
-            $customer->update();
+            $imageName = "";
+            if ($request->hasFile("img")) {
+                // $image = $request->file('img');
+                 $imageName = time() . "_" . $request->file("img")->getClientOriginalName();
+                 $request->file("img")->storeAs("uploads/customers", $imageName, "public");
+                $customer->img = $imageName;
+            }
+
+            // $customer->name = $request->customer['name'];
+            // $customer->email = $request->customer['email'];
+            // $customer->phone = $request->customer['phone'];
+            // $customer->address = $request->customer['address'];
+            // $customer->gender = $request->customer['gender'];
+            // $customer->date_of_birth = $request->customer['date_of_birth'];
+            // $customer->status = $request->customer['status'];
+
+            $customer->name = $request->name;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->address = $request->address;
+            $customer->gender = $request->gender;
+            $customer->date_of_birth = $request->date_of_birth;
+            $customer->status = $request->status;
+
+            $customer->save();
             return response()->json(["success" => "Customer saved succesfully"], 200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage(), 500);
+            return response()->json(["error"=>$th->getMessage()], 500);
         }
     }
 
