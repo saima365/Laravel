@@ -86,7 +86,7 @@ class CustomerController extends Controller
     function update(Request $request, $id)
     {
          try {
-
+        //    return response()->json(["success" => $request->all()], 200);
 
             $request->validate([
                 'name' => 'required',
