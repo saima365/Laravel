@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\RoleController;
-
+use App\Http\Controllers\Api\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +25,4 @@ Route::get("/role",[RoleController::class,"index"]);
 
 
 Route::apiResource("customers",CustomerController::class);
+Route::apiResource("transactions",TransactionController::class);

@@ -50,24 +50,24 @@ class TransactionController extends Controller
                                   ->latest('id')
                                   ->first();
 
-    // 2️⃣ Determine balance_before
+    //  Determine balance_before
     $balanceBefore = $lastTransaction ? $lastTransaction->balance_after : 0;
 
-    // 3️⃣ Define IDs for add/subtract
-    $addIds = [3,4,6];
-    $subtractIds = [1, 2, 5];
+    //  Define IDs for add/subtract
+    $addIds = [1,2,3];
+    $subtractIds = [4,5,6];
 
-    // 4️⃣ Check for insufficient balance
+    //  Check for insufficient balance
     if (in_array($request->transaction_type_id, $subtractIds) && $request->amount > $balanceBefore) {
         return back()->with('error', 'Insufficient balance!');
     }
 
-    // 5️⃣ Calculate balance_after
+    //  Calculate balance_after
     $balanceAfter = in_array($request->transaction_type_id, $addIds)
                     ? $balanceBefore + $request->amount
                     : $balanceBefore - $request->amount;
 
-    // 6️⃣ Save transaction
+    //  Save transaction
     $transaction = new Transaction();
     $transaction->account_id = $request->account_id;
     $transaction->transaction_type_id = $request->transaction_type_id;

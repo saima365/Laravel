@@ -1,8 +1,8 @@
 @extends('layout.erp.app')
 @section('content')
     <!--**********************************
-                                Content body start
-                            ***********************************-->
+                                    Content body start
+                                ***********************************-->
 
     <div class="content-body">
         <!-- row -->
@@ -41,7 +41,7 @@
                 <div class="col-xl-12">
                     <div class="tab-content">
                         <!-- --tab-pane -->
-                         <input type="text" class="form-control w-25" id="search" placeholder="Search here..." >
+                        <input type="text" class="form-control w-25" id="search" placeholder="Search here...">
                         <div class="card-body" id="all-transactions" role="tabpanel">
                             <div class="table-responsive ">
                                 <table class="table table-responsive-md" id="example5">
@@ -216,7 +216,9 @@
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="#">Cancel Transaction</a>
-                                                            <a class="dropdown-item" href="{{ route('transaction.show', $transaction->id) }}">View Details</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('transaction.show', $transaction->id) }}">View
+                                                                Details</a>
                                                         </div>
                                                     </div>
                                                 </td>
