@@ -26,3 +26,5 @@ Route::get("/role",[RoleController::class,"index"]);
 
 Route::apiResource("customers",CustomerController::class);
 Route::apiResource("transactions",TransactionController::class);
+Route::get("transaction_types",[TransactionController::class,'transaction_types']);
+Route::get("account_number/{id}",[TransactionController::class,'account_number']);
