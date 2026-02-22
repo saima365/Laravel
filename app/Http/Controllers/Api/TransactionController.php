@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Account;
+use App\Models\Customer;
 use App\Models\Transaction;
 use App\Models\Transaction_type;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+
+        //  return response()->json($request->all());
         DB::beginTransaction();
 
         try {
@@ -94,7 +97,11 @@ class TransactionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $lastTransaction = Transaction::orderBy('id', 'desc')->first();
+        $transactions = Transaction::with(['transaction_type','account'])
+        ->where("account_id","=", $customer->account_id)->get();
+        return response()->json(compact("customer"), 200);
     }
 
     /**
