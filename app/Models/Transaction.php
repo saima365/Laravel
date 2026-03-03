@@ -24,8 +24,12 @@ class Transaction extends Model
     }
     public function transaction_type()
 {
-    return $this->belongsTo(Transaction_type::class, 'transaction_type_id', 'id');
-      
+    return $this->belongsTo(TransactionType::class, 'transaction_type_id', 'id');
+
+}
+public function transactionType()
+{
+    return $this->belongsTo(TransactionType::class, 'transaction_type_id');
 }
 
      public function customer()

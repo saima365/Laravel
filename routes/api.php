@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\RoleController;
@@ -27,6 +28,7 @@ Route::get("/role",[RoleController::class,"index"]);
 
 Route::apiResource("customers",CustomerController::class);
 Route::apiResource("transactions",TransactionController::class);
+Route::apiResource("accounts",AccountController::class);
 Route::apiResource("users",UserController::class);
 Route::get("transaction_types",[TransactionController::class,'transaction_types']);
 Route::get("account_number/{id}",[TransactionController::class,'account_number']);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -12,7 +14,8 @@ class AccountController extends Controller
      */
     public function index()
     {
-        //
+         $accounts = Account::with('customer')->get(); // eager load customer
+    return response()->json(['account' => $accounts]);
     }
 
     /**
@@ -44,6 +47,8 @@ class AccountController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $account = Account::findOrFail($id);
+        $account->delete();
+        return response()->json(["success" => "account deleted succesfully"], 200);
     }
 }

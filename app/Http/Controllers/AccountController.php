@@ -60,7 +60,7 @@ class AccountController extends Controller
             "role.required"=>"role Field Required",
             "account_number.required"=>"account_number Field Required",
         ]);
-        $img = "";
+        // $img = "";
         $imgname = "";
          if ($request->hasFile("img")) {
             $slug = Str::slug($request->name);

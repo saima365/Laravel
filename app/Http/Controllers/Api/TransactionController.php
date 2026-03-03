@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Customer;
 use App\Models\Transaction;
-use App\Models\Transaction_type;
+use App\Models\TransactionType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Stmt\TryCatch;
+
 
 class TransactionController extends Controller
 {
@@ -26,82 +26,105 @@ class TransactionController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+{
+    //  Validate input
+    $request->validate([
+        'account_id' => 'required|exists:accounts,id',
+        'transaction_type_id' => 'required|exists:transaction_types,id',
+        'amount' => 'required|numeric|min:0.01',
+        'description' => 'nullable|string',
+        'transfer_to' => 'nullable|string',
+        'receive_from' => 'nullable|string',
+        'date' => 'nullable|date',
+    ]);
 
-        //  return response()->json($request->all());
-        DB::beginTransaction();
+    DB::beginTransaction();
 
-        try {
+    try {
 
-            $request->validate([
-                'account_id' => 'required|exists:accounts,id',
-                'transaction_type_id' => 'required|exists:transaction_types,id',
-                'amount' => 'required|numeric|min:0.01',
-                'description' => 'nullable|string',
-                'transfer_to' => 'nullable|string',
-                'receive_from' => 'nullable|string',
-                'date' => 'nullable|date',
-            ]);
+        //  Lock last transaction row to prevent race condition
+        $lastTransaction = Transaction::where('account_id', $request->account_id)
+            ->lockForUpdate()
+            ->orderByDesc('id')
+            ->first();
 
-            // Lock rows for update (prevents race condition)
-            $lastTransaction = Transaction::where('account_id', $request->account_id)
-                ->lockForUpdate()
-                ->latest('id')
-                ->first();
+        $balanceBefore = $lastTransaction
+            ? (float)$lastTransaction->balance_after
+            : 0;
 
-            $balanceBefore = $lastTransaction ? $lastTransaction->balance_after : 0;
+        $amount = (float)$request->amount;
 
-            $addIds = [1, 2, 3];
-            $subtractIds = [4, 5, 6];
+        // Get transaction type safely
+        $type = TransactionType::findOrFail($request->transaction_type_id);
+        $typeName = strtolower(trim($type->type_name));
 
-            if (
-                in_array($request->transaction_type_id, $subtractIds)
-                && $request->amount > $balanceBefore
-            ) {
-                return back()->with('error', 'Insufficient balance!');
+        // Determine transaction behavior
+        $debitTypes = ['withdraw', 'payment', 'expense'];
+        $creditTypes = ['deposit', 'receive', 'income'];
+
+        if (in_array($typeName, $debitTypes)) {
+
+            // Check for insufficient balance
+            if ($amount > $balanceBefore) {
+                return response()->json([
+                    'error' => 'Insufficient balance!'
+                ], 422);
             }
 
-            $balanceAfter = in_array($request->transaction_type_id, $addIds)
-                ? $balanceBefore + $request->amount
-                : $balanceBefore - $request->amount;
+            $balanceAfter = $balanceBefore - $amount;
 
-            $transaction = Transaction::create([
-                'account_id' => $request->account_id,
-                'transaction_type_id' => $request->transaction_type_id,
-                'amount' => $request->amount,
-                'balance_before' => $balanceBefore,
-                'balance_after' => $balanceAfter,
-                'transfer_to' => $request->transfer_to,
-                'receive_from' => $request->receive_from,
-                'date' => $request->date ?? now(),
-                'description' => $request->description,
-            ]);
+        } elseif (in_array($typeName, $creditTypes)) {
 
-            DB::commit();
+            $balanceAfter = $balanceBefore + $amount;
 
+        } else {
             return response()->json([
-                "success" => "Transaction Created successfully"
-            ], 200);
-        } catch (\Throwable $th) {
-
-            DB::rollBack();
-
-            return response()->json([
-                "error" => $th->getMessage()
-            ], 500);
+                'error' => 'Invalid transaction type!'
+            ], 422);
         }
+
+        // Create the transaction
+        Transaction::create([
+            'account_id' => $request->account_id,
+            'transaction_type_id' => $request->transaction_type_id,
+            'amount' => $amount,
+            'balance_before' => $balanceBefore,
+            'balance_after' => $balanceAfter,
+            'transfer_to' => $request->transfer_to,
+            'receive_from' => $request->receive_from,
+            'date' => $request->date ?? now(),
+            'description' => $request->description,
+        ]);
+
+        DB::commit();
+
+        //  Return success response
+        return response()->json([
+            'success' => 'Transaction created successfully',
+            'balance_before' => $balanceBefore,
+            'balance_after' => $balanceAfter
+        ], 200);
+
+    } catch (\Throwable $th) {
+        DB::rollBack();
+
+        // Return server error only for unexpected issues
+        return response()->json([
+            'error' => 'Server error: ' . $th->getMessage()
+        ], 500);
     }
+}
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $customer = Customer::findOrFail($id);
+        $customer = Customer::with('account.branch')->findOrFail($id);
         $lastTransaction = Transaction::orderBy('id', 'desc')->first();
-        $transactions = Transaction::with(['transaction_type','account'])
-        ->where("account_id","=", $customer->account_id)->get();
-        return response()->json(compact("customer"), 200);
+        $transactions = Transaction::with('transaction_type')
+            ->where("account_id", "=", $customer->account_id)->get();
+        return response()->json(compact("customer", "transactions", "lastTransaction"), 200);
     }
 
     /**
@@ -117,7 +140,7 @@ class TransactionController extends Controller
      */
     public function transaction_types()
     {
-        $transaction_types = Transaction_type::all();
+        $transaction_types = TransactionType::all();
         return response()->json(compact('transaction_types'));
     }
 

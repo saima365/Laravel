@@ -7,7 +7,9 @@ use App\Models\Branche;
 use App\Models\Customer;
 use App\Models\Transaction;
 use App\Models\Transaction_type;
+use App\Models\TransactionType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
@@ -27,16 +29,15 @@ class TransactionController extends Controller
      */
     public function create()
     {
-         $transactionTypes=Transaction_type::all();
+         $transactionTypes=TransactionType::all();
         return view("pages.erp.transaction.create", compact("transactionTypes"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function save(Request $request)
-    {
-
+   public function save(Request $request)
+{
     $request->validate([
         'account_id' => 'required|exists:accounts,id',
         'transaction_type_id' => 'required|exists:transaction_types,id',
@@ -46,41 +47,54 @@ class TransactionController extends Controller
         'receive_from' => 'nullable|string',
         'date' => 'nullable|date',
     ]);
-     $lastTransaction = Transaction::where('account_id', $request->account_id)
-                                  ->latest('id')
-                                  ->first();
 
-    //  Determine balance_before
-    $balanceBefore = $lastTransaction ? $lastTransaction->balance_after : 0;
+    DB::transaction(function () use ($request) {
 
-    //  Define IDs for add/subtract
-    $addIds = [1,2,3];
-    $subtractIds = [4,5,6];
+        $lastTransaction = Transaction::where('account_id', $request->account_id)
+            ->latest('id')
+            ->lockForUpdate() // prevents race condition
+            ->first();
 
-    //  Check for insufficient balance
-    if (in_array($request->transaction_type_id, $subtractIds) && $request->amount > $balanceBefore) {
-        return back()->with('error', 'Insufficient balance!');
-    }
+        $balanceBefore = $lastTransaction
+            ? (float)$lastTransaction->balance_after
+            : 0;
 
-    //  Calculate balance_after
-    $balanceAfter = in_array($request->transaction_type_id, $addIds)
-                    ? $balanceBefore + $request->amount
-                    : $balanceBefore - $request->amount;
+        $amount = (float)$request->amount;
 
-    //  Save transaction
-    $transaction = new Transaction();
-    $transaction->account_id = $request->account_id;
-    $transaction->transaction_type_id = $request->transaction_type_id;
-    $transaction->amount = $request->amount;
-    $transaction->balance_before = $balanceBefore;
-    $transaction->balance_after = $balanceAfter;
-    $transaction->transfer_to = $request->transfer_to;
-    $transaction->receive_from = $request->receive_from;
-    $transaction->date = $request->date ?? now();
-    $transaction->description = $request->description;
-    $transaction->save();
+        $type = TransactionType::findOrFail($request->transaction_type_id);
+        $typeName = strtolower(trim($type->type_name));
 
-    return redirect()->route('transaction.index')->with('success', 'Transaction saved!');
+        if (in_array($typeName, ['withdraw','payment','expense'])) {
+
+            if ($amount > $balanceBefore) {
+                abort(422, 'Insufficient balance!');
+            }
+
+            $balanceAfter = $balanceBefore - $amount;
+
+        } elseif (in_array($typeName, ['deposit','receive','income'])) {
+
+            $balanceAfter = $balanceBefore + $amount;
+
+        } else {
+            abort(422, 'Invalid transaction type!');
+        }
+
+        Transaction::create([
+            'account_id' => $request->account_id,
+            'transaction_type_id' => $request->transaction_type_id,
+            'amount' => $amount,
+            'balance_before' => $balanceBefore,
+            'balance_after' => $balanceAfter,
+            'transfer_to' => $request->transfer_to,
+            'receive_from' => $request->receive_from,
+            'date' => $request->date ?? now(),
+            'description' => $request->description,
+        ]);
+    });
+
+    return redirect()->route('transaction.index')
+        ->with('success', 'Transaction saved!');
 }
     /**
      * Display the specified resource.
